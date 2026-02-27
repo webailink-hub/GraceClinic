@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Hispana Medical Clinic</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        trustNavy: '#122C50',
+                        clinicalRed: '#C3262A',
+                        pureWhite: '#FFFFFF',
+                        slateGray: '#F4F5F7',
+                        charcoal: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Roboto Slab', 'serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for specific scrolling/hover effects -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4F5F7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #122C50;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C3262A;
+        }
+
+        /* Glassmorphism Navbar scroll transition */
+        #navbar {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: rgba(255, 255, 255, 1);
+        }
+        #navbar.scrolled {
+            box-shadow: 0 10px 15px -3px rgba(18, 44, 80, 0.05), 0 4px 6px -2px rgba(18, 44, 80, 0.025);
+            height: 4.5rem;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        #navbar.scrolled .nav-inner {
+            height: 4.5rem;
+        }
+        
+        /* Premium Service Card Hover Enhancement */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(to bottom right, rgba(195, 38, 42, 0.03), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 25px 30px -5px rgba(18, 44, 80, 0.1), 0 10px 15px -5px rgba(18, 44, 80, 0.04);
+            border-color: rgba(195, 38, 42, 0.2);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card:hover .icon-box {
+            background-color: #122C50;
+            color: #FFFFFF;
+            transform: scale(1.1) rotate(5deg);
+        }
+        .icon-box {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Image placeholder gentle pulse animation */
+        @keyframes subtlePulse {
+            0% { opacity: 0.4; transform: scale(0.98); }
+            50% { opacity: 0.7; transform: scale(1.02); }
+            100% { opacity: 0.4; transform: scale(0.98); }
+        }
+        .placeholder-icon {
+            animation: subtlePulse 5s infinite ease-in-out;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: top;
+        }
+        #mobile-menu.hidden-menu {
+            opacity: 0;
+            transform: scaleY(0);
+            pointer-events: none;
+        }
+        #mobile-menu.active-menu {
+            opacity: 1;
+            transform: scaleY(1);
+            pointer-events: auto;
+        }
+        
+        /* Animated Gradient Background */
+        .bg-animated-gradient {
+            background: linear-gradient(-45deg, #122C50, #1a3e70, #0c1d36, #122C50);
+            background-size: 400% 400%;
+        }
+    </style>
+</head>
+<body class="bg-pureWhite font-sans text-charcoal antialiased overflow-x-hidden">
+
+    <!-- Top Bar - Contact Info -->
+    <div class="bg-trustNavy text-white py-2 px-4 hidden md:block relative z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-sm font-sans">
+            <div class="flex items-center gap-6">
+                <a href="#location" class="flex items-center gap-2 hover:text-clinicalRed transition-colors">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-clinicalRed"></i>
+                    3636 E Imperial Highway, Lynwood, CA 90262
+                </a>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="clock" class="w-4 h-4 text-clinicalRed"></i>
+                    Mon-Sun: 9am - 7pm
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="uppercase tracking-widest text-xs font-semibold text-white/80 bg-white/10 px-3 py-1 rounded-full">
+                    Walk-ins Welcome • Se Habla Español
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav id="navbar" class="border-b border-slateGray sticky top-0 z-40 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="nav-inner flex justify-between items-center h-24 transition-all duration-300">
+                
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center gap-3 group">
+                    <div class="relative flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-200 group-hover:shadow-md group-hover:border-clinicalRed/30 transition-all duration-300 group-hover:scale-105">
+                        <i data-lucide="heart-pulse" class="w-8 h-8 text-clinicalRed stroke-[1.5]"></i>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <span class="font-serif font-bold text-trustNavy text-xl leading-none group-hover:text-clinicalRed transition-colors duration-300">
+                            Alma Hispana
+                        </span>
+                        <span class="font-sans font-semibold text-clinicalRed text-[0.65rem] tracking-[0.15em] mt-1">
+                            MEDICAL CLINIC
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="font-sans font-semibold text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-300">Services</a>
+                    <a href="#about" class="font-sans font-semibold text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-300">About Us</a>
+                    <a href="#location" class="font-sans font-semibold text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-300">Location</a>
+                    
+                    <a href="tel:3104556491" class="flex items-center gap-2 bg-trustNavy text-white px-6 py-3 rounded-full font-sans font-semibold hover:bg-clinicalRed hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-clinicalRed/20">
+                        <i data-lucide="phone" class="w-[18px] h-[18px]"></i>
+                        (310) 455-6491
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-trustNavy hover:text-clinicalRed focus:outline-none transition-colors">
+                        <svg id="icon-menu" class="w-8 h-8 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden-menu md:hidden bg-white/95 backdrop-blur-md border-t border-slateGray absolute top-full left-0 w-full shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#services" class="mobile-link block px-3 py-4 font-sans font-semibold text-charcoal border-b border-slateGray hover:bg-slateGray/50 hover:text-clinicalRed transition-colors">Services</a>
+                <a href="#about" class="mobile-link block px-3 py-4 font-sans font-semibold text-charcoal border-b border-slateGray hover:bg-slateGray/50 hover:text-clinicalRed transition-colors">About Us</a>
+                <a href="#location" class="mobile-link block px-3 py-4 font-sans font-semibold text-charcoal border-b border-slateGray hover:bg-slateGray/50 hover:text-clinicalRed transition-colors">Location</a>
+                <div class="pt-6 pb-2 px-3">
+                    <p class="text-sm text-charcoal mb-3 font-sans flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-clinicalRed animate-pulse"></i>
+                        Open Today: 9am - 7pm
+                    </p>
+                    <a href="tel:3104556491" class="w-full flex items-center justify-center gap-2 bg-clinicalRed text-white px-6 py-4 rounded-xl font-sans font-semibold shadow-md active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-[18px] h-[18px]"></i>
+                        Call (310) 455-6491
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-slateGray overflow-hidden relative">
+        <!-- Parallax Background Element -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/clean-text.png')] opacity-40 mix-blend-multiply bg-fixed z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-slateGray via-white/80 to-white opacity-80 z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <div class="max-w-xl" data-aos="fade-right" data-aos-duration="1200">
+                    <span class="font-sans font-semibold uppercase tracking-[0.15em] text-clinicalRed text-sm block mb-6 flex items-center gap-3">
+                        <span class="w-10 h-[2px] bg-clinicalRed inline-block"></span>
+                        Bienvenidos a su clínica
+                    </span>
+                    <h1 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-trustNavy leading-tight mb-6 drop-shadow-sm">
+                        Quality medical care for our <span class="text-clinicalRed">Lynwood</span> community.
+                    </h1>
+                    <p class="font-sans text-lg text-charcoal mb-10 leading-relaxed opacity-90 max-w-lg">
+                        Compassionate, accessible, and comprehensive healthcare for you and your family. 
+                        From walk-in urgent care to wellness physicals, our bilingual team is here 7 days a week.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:3104556491" class="inline-flex justify-center items-center gap-2 bg-trustNavy text-white px-8 py-4 rounded-full font-sans font-semibold hover:bg-clinicalRed hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-lg group">
+                            <i data-lucide="phone" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                            Call Us Now
+                        </a>
+                        <a href="#location" class="inline-flex justify-center items-center gap-2 bg-white text-trustNavy border-2 border-trustNavy/10 px-8 py-4 rounded-full font-sans font-semibold hover:bg-slateGray hover:border-trustNavy transition-all duration-300 text-lg shadow-sm">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative h-full min-h-[400px] lg:min-h-[500px]" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <!-- Image Placeholder Component with Float Animation -->
+                    <div class="animate-float bg-white border-2 border-dashed border-trustNavy/20 flex flex-col items-center justify-center text-center p-6 rounded-[2rem] shadow-2xl overflow-hidden h-full min-h-[450px] relative w-full group">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-trustNavy/5 to-transparent"></div>
+                        <div class="text-trustNavy mb-4 placeholder-icon relative z-10">
+                            <svg class="w-20 h-20 mx-auto opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <p class="font-sans text-sm text-charcoal italic max-w-sm relative z-10 bg-white/90 p-5 rounded-2xl backdrop-blur-md border border-slateGray shadow-lg transform group-hover:scale-105 transition-transform duration-500">
+                            Hero Image Placeholder: Warm, bright photography of a diverse, caring Hispanic doctor smiling confidently alongside a relieved patient in a clean, modern clinical setting.
+                        </p>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-8 -left-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white hidden md:block" data-aos="zoom-in" data-aos-delay="800">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-slateGray rounded-full flex items-center justify-center relative">
+                                <div class="absolute inset-0 rounded-full border-2 border-clinicalRed animate-ping opacity-30"></div>
+                                <i data-lucide="heart-pulse" class="text-clinicalRed w-7 h-7"></i>
+                            </div>
+                            <div>
+                                <p class="font-serif font-bold text-trustNavy text-xl">Trusted Care</p>
+                                <p class="font-sans text-sm text-charcoal">In the heart of Lynwood</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Marquee Banner -->
+    <div class="bg-clinicalRed text-white py-3 border-y border-trustNavy/10 overflow-hidden relative shadow-inner">
+        <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-clinicalRed to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-clinicalRed to-transparent z-10"></div>
+        <div class="flex whitespace-nowrap animate-marquee font-sans text-sm font-semibold tracking-wider">
+            <!-- Repeated blocks for seamless looping -->
+            <div class="flex items-center gap-12 px-6">
+                <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Walk-ins Welcome</span>
+                <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Open 7 Days a Week</span>
+                <span class="flex items-center gap-2"><i data-lucide="languages" class="w-4 h-4"></i> Se Habla Español</span>
+                <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> No Appointment Needed</span>
+                <span class="flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4"></i> State-of-the-Art Facility</span>
+            </div>
+            <div class="flex items-center gap-12 px-6">
+                <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Walk-ins Welcome</span>
+                <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Open 7 Days a Week</span>
+                <span class="flex items-center gap-2"><i data-lucide="languages" class="w-4 h-4"></i> Se Habla Español</span>
+                <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> No Appointment Needed</span>
+                <span class="flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4"></i> State-of-the-Art Facility</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Primary Services Section -->
+    <section id="services" class="py-24 bg-pureWhite relative">
+        <div class="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-slateGray/30 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <span class="font-sans font-semibold uppercase tracking-[0.15em] text-clinicalRed text-sm block mb-4">
+                    Comprehensive Care
+                </span>
+                <h2 class="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-trustNavy mb-6">
+                    Medical services designed for your health and peace of mind.
+                </h2>
+                <div class="w-24 h-1 bg-clinicalRed mx-auto mb-6 rounded-full"></div>
+                <p class="font-sans text-charcoal text-lg opacity-90">
+                    We provide a wide range of medical services to treat illness, prevent disease, and keep our community healthy. No appointment necessary for urgent needs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white p-10 rounded-[2rem] shadow-sm border border-slateGray" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box w-16 h-16 bg-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy">
+                        <i data-lucide="stethoscope" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-trustNavy mb-6">
+                        Urgent Care & Illness
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Cold, flu & COVID-19 evaluation</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Fever & sore throat (Strep testing)</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Ear, sinus & respiratory infections</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Bronchitis & mild pneumonia</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Allergies & asthma exacerbations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white p-10 rounded-[2rem] shadow-sm border border-slateGray relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-slateGray rounded-bl-[120px] -z-10 opacity-50 transition-transform duration-500 service-card-shape"></div>
+                    <div class="icon-box w-16 h-16 bg-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy">
+                        <i data-lucide="shield-check" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-trustNavy mb-6">
+                        Physicals & Screenings
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">School & sports physicals</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">DOT & Pre-employment physicals</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Workers' compensation care</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">TB clearance & health screenings</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">On-site rapid testing & lab services</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white p-10 rounded-[2rem] shadow-sm border border-slateGray" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box w-16 h-16 bg-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy">
+                        <i data-lucide="droplet" class="w-8 h-8 stroke-[1.5]"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl text-trustNavy mb-6">
+                        Wellness & Treatments
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">IV hydration & vitamin therapy</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Vaccinations (Flu, COVID, Tdap)</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Nebulizer treatments</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">Basic dermatologic procedures</span>
+                        </li>
+                        <li class="flex items-start gap-3 group/item">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
+                            <span class="font-sans text-charcoal leading-relaxed">STD treatment & counseling</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center" data-aos="zoom-in" data-aos-delay="400">
+                <p class="font-sans text-charcoal mb-6 inline-flex items-center gap-3 bg-slateGray px-8 py-4 rounded-full text-sm shadow-sm border border-trustNavy/5">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-clinicalRed opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-clinicalRed"></span>
+                    </span>
+                    Cash-pay procedures & injections available. We strive for accessible care for all.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Value Proposition -->
+    <section id="about" class="py-24 bg-animated-gradient animate-gradient text-white relative overflow-hidden">
+        <!-- Floating overlay particles -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-clinicalRed/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <!-- Image Placeholder with Glassmorphism frame -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center text-center p-6 rounded-3xl shadow-2xl h-[550px] w-full relative group overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
+                        <div class="text-white mb-6 placeholder-icon opacity-80 z-10">
+                            <svg class="w-20 h-20 mx-auto transform group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <p class="font-sans text-sm text-white/90 italic max-w-sm bg-trustNavy/60 p-5 rounded-2xl shadow-xl border border-white/20 backdrop-blur-lg z-10">
+                            About Us Image Placeholder: Authentic photography showing a patient intake process. A welcoming front desk staff member interacting warmly with a Hispanic family. Warm lighting, clean environment.
+                        </p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1000">
+                    <span class="font-sans font-semibold uppercase tracking-[0.15em] text-clinicalRed text-sm block mb-6 flex items-center gap-3">
+                        <span class="w-10 h-[2px] bg-clinicalRed inline-block"></span>
+                        Nuestra Promesa / Our Promise
+                    </span>
+                    <h2 class="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-8 leading-tight drop-shadow-md">
+                        Dedicated to clinical excellence and compassionate care.
+                    </h2>
+                    <div class="space-y-6 font-sans text-white/90 text-lg leading-relaxed mb-12">
+                        <p class="opacity-90">
+                            At Alma Hispana Medical Clinic, we believe that everyone deserves high-quality, accessible healthcare. Our visual identity—the heart and the medical cross—represents our core mission: combining the universal symbol of care with clinical excellence.
+                        </p>
+                        <p class="opacity-90">
+                            We understand the unique needs of the Lynwood community. Whether you need a walk-in evaluation for a sudden illness, a pre-employment physical, or specialized treatments like IV hydration, our bilingual staff is ready to provide reassuring, patient-first care.
+                        </p>
+                    </div>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
+                            <div class="text-clinicalRed mb-5 bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-clinicalRed group-hover:text-white transition-all duration-300">
+                                <i data-lucide="heart-pulse" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="font-serif font-medium text-xl text-white mb-3">Compassionate</h4>
+                            <p class="font-sans text-sm text-white/70 leading-relaxed">Empathetic, understanding, and always prioritizing your comfort from the moment you walk in.</p>
+                        </div>
+                        <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
+                            <div class="text-clinicalRed mb-5 bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-clinicalRed group-hover:text-white transition-all duration-300">
+                                <i data-lucide="activity" class="w-8 h-8"></i>
+                            </div>
+                            <h4 class="font-serif font-medium text-xl text-white mb-3">Accessible</h4>
+                            <p class="font-sans text-sm text-white/70 leading-relaxed">Clear communication, no complex medical jargon, and open 7 days a week to serve you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact -->
+    <section id="location" class="py-24 bg-slateGray relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl border border-slate-200 overflow-hidden" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="grid lg:grid-cols-5 h-full">
+                    
+                    <!-- Contact Info Panel -->
+                    <div class="lg:col-span-2 bg-clinicalRed text-white p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden group/panel">
+                        <!-- Decorative overlay pattern -->
+                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:24px_24px] group-hover/panel:scale-110 transition-transform duration-1000"></div>
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                        
+                        <div class="relative z-10">
+                            <h2 class="font-serif font-bold text-3xl md:text-4xl mb-10 drop-shadow-md">
+                                Visit Our Clinic
+                            </h2>
+                            
+                            <div class="space-y-10 font-sans">
+                                <div class="flex items-start gap-5 group/info">
+                                    <div class="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm group-hover/info:bg-white group-hover/info:text-clinicalRed transition-colors duration-300">
+                                        <i data-lucide="map-pin" class="w-6 h-6 currentColor"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-sm mb-2 uppercase tracking-widest text-white/80">Address</h4>
+                                        <p class="text-xl leading-snug font-medium">
+                                            3636 E Imperial Highway<br />
+                                            Lynwood, CA 90262
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-5 group/info">
+                                    <div class="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm group-hover/info:bg-white group-hover/info:text-clinicalRed transition-colors duration-300">
+                                        <i data-lucide="clock" class="w-6 h-6 currentColor"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-sm mb-2 uppercase tracking-widest text-white/80">Operating Hours</h4>
+                                        <p class="text-xl font-medium">
+                                            Monday - Sunday<br />
+                                            9:00 AM - 7:00 PM
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-5 group/info">
+                                    <div class="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm group-hover/info:bg-white group-hover/info:text-clinicalRed transition-colors duration-300">
+                                        <i data-lucide="phone" class="w-6 h-6 currentColor"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-sm mb-2 uppercase tracking-widest text-white/80">Contact</h4>
+                                        <p class="text-2xl font-bold tracking-wide">
+                                            (310) 455-6491
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-12 pt-10 border-t border-white/20">
+                                <p class="font-sans text-white/90 mb-6 font-medium">No appointment needed for most services.</p>
+                                <a href="tel:3104556491" class="inline-flex justify-center items-center gap-3 bg-white text-clinicalRed px-8 py-4 rounded-full font-sans font-bold hover:bg-trustNavy hover:text-white hover:scale-105 transition-all duration-300 w-full sm:w-auto text-lg shadow-xl">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                    Call Ahead
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="lg:col-span-3 min-h-[500px] bg-slate-200 relative group overflow-hidden">
+                        <div class="absolute inset-0 bg-trustNavy/5 z-0"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
+                            <div class="w-24 h-24 bg-white rounded-full shadow-2xl flex items-center justify-center mb-6 text-trustNavy transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative">
+                                <div class="absolute inset-0 border-4 border-clinicalRed/20 rounded-full animate-ping"></div>
+                                <i data-lucide="map" class="w-12 h-12"></i>
+                            </div>
+                            <div class="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-slateGray max-w-sm transform group-hover:translate-y-2 transition-all duration-500">
+                                <p class="font-sans text-charcoal font-bold text-lg">
+                                    Interactive Map Placeholder
+                                </p>
+                                <p class="text-sm text-charcoal/70 mt-3 leading-relaxed">
+                                    Google Maps Embed targeting: <br><span class="font-medium text-trustNavy">3636 E Imperial Highway, Lynwood, CA 90262</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-trustNavy text-white pt-24 pb-10 border-t-8 border-clinicalRed">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-12 lg:gap-16 mb-16">
+                
+                <div class="md:col-span-5">
+                    <!-- White monochrome version of logo for dark background -->
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="relative flex items-center justify-center w-14 h-14 bg-transparent border-[2.5px] border-white rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                            <i data-lucide="heart-pulse" class="w-8 h-8 text-white stroke-2"></i>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span class="font-serif font-bold text-white text-3xl leading-none">
+                                Alma Hispana
+                            </span>
+                            <span class="font-sans font-semibold text-white/90 text-[0.7rem] tracking-[0.25em] mt-2">
+                                MEDICAL CLINIC
+                            </span>
+                        </div>
+                    </div>
+                    <p class="font-sans text-white/70 text-base leading-relaxed max-w-sm pr-4">
+                        Dedicated to providing compassionate, accessible, and excellent medical care to the Lynwood community. Your health is our priority.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-sans font-bold uppercase tracking-[0.15em] text-white text-sm mb-6 flex items-center gap-3">
+                        <span class="w-6 h-[2px] bg-clinicalRed"></span> Quick Links
+                    </h4>
+                    <ul class="space-y-4 font-sans text-base text-white/70">
+                        <li><a href="#services" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">Our Services</a></li>
+                        <li><a href="#about" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">About the Clinic</a></li>
+                        <li><a href="#location" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">Location & Hours</a></li>
+                        <li><a href="#" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">Patient Forms</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4">
+                    <h4 class="font-sans font-bold uppercase tracking-[0.15em] text-white text-sm mb-6 flex items-center gap-3">
+                        <span class="w-6 h-[2px] bg-clinicalRed"></span> Contact Us
+                    </h4>
+                    <ul class="space-y-5 font-sans text-base text-white/80">
+                        <li class="flex items-start gap-4 hover:text-white transition-colors">
+                            <div class="bg-white/10 p-2 rounded-lg shrink-0"><i data-lucide="map-pin" class="text-clinicalRed w-5 h-5"></i></div>
+                            <span class="leading-snug pt-1">3636 E Imperial Highway<br/>Lynwood, CA 90262</span>
+                        </li>
+                        <li class="flex items-center gap-4 hover:text-white transition-colors">
+                            <div class="bg-white/10 p-2 rounded-lg shrink-0"><i data-lucide="phone" class="text-clinicalRed w-5 h-5"></i></div>
+                            <span class="font-medium text-lg tracking-wide">(310) 455-6491</span>
+                        </li>
+                        <li class="flex items-center gap-4 hover:text-white transition-colors">
+                            <div class="bg-white/10 p-2 rounded-lg shrink-0"><i data-lucide="clock" class="text-clinicalRed w-5 h-5"></i></div>
+                            <span class="pt-0.5">Mon-Sun: 9am - 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-sm text-white/50">
+                <p>&copy; 2024 Alma Hispana Medical Clinic. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            once: true, // whether animation should happen only once - while scrolling down
+            offset: 80, // offset (in px) from the original trigger point
+            duration: 900, // values from 0 to 3000, with step 50ms
+            easing: 'ease-out-cubic', // default easing for AOS animations
+        });
+
+        // Sticky Navbar Script
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Script
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden-menu');
+            menu.classList.toggle('active-menu');
+            iconMenu.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking a link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(menu.classList.contains('active-menu')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
