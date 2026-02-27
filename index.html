@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alma Hispana Medical Clinic</title>
+    <title>Alma Hispana Medical Clinic | Distinguished Care</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Expanded weights for elegant typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,9 +33,9 @@
                         serif: ['Roboto Slab', 'serif'],
                     },
                     animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'gradient': 'gradient 8s ease infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                        'float': 'float 8s ease-in-out infinite',
+                        'fade-in-slow': 'fadeIn 2s ease-out forwards',
                     },
                     keyframes: {
                         marquee: {
@@ -44,11 +44,11 @@
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
+                            '50%': { transform: 'translateY(-15px)' },
                         },
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
                         }
                     }
                 }
@@ -56,85 +56,68 @@
         }
     </script>
 
-    <!-- Custom CSS for specific scrolling/hover effects -->
+    <!-- Custom CSS for distinguished styling -->
     <style>
-        /* Custom Scrollbar */
+        /* Custom Elegant Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #F4F5F7;
+            background: #FFFFFF;
         }
         ::-webkit-scrollbar-thumb {
             background: #122C50;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #C3262A;
+            border-radius: 4px;
         }
 
-        /* Glassmorphism Navbar scroll transition */
+        /* Minimalist Glassmorphism Navbar */
         #navbar {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             background-color: rgba(255, 255, 255, 1);
+            border-bottom: 1px solid rgba(18, 44, 80, 0.05);
         }
         #navbar.scrolled {
-            box-shadow: 0 10px 15px -3px rgba(18, 44, 80, 0.05), 0 4px 6px -2px rgba(18, 44, 80, 0.025);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
             height: 4.5rem;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(18, 44, 80, 0.08);
         }
         #navbar.scrolled .nav-inner {
             height: 4.5rem;
         }
         
-        /* Premium Service Card Hover Enhancement */
+        /* Editorial Service Card Hover */
         .service-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 1;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: linear-gradient(to bottom right, rgba(195, 38, 42, 0.03), transparent);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #FFFFFF;
         }
         .service-card:hover {
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 25px 30px -5px rgba(18, 44, 80, 0.1), 0 10px 15px -5px rgba(18, 44, 80, 0.04);
-            border-color: rgba(195, 38, 42, 0.2);
-        }
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        .service-card:hover .icon-box {
-            background-color: #122C50;
-            color: #FFFFFF;
-            transform: scale(1.1) rotate(5deg);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(18, 44, 80, 0.08);
         }
         .icon-box {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        /* Image placeholder gentle pulse animation */
-        @keyframes subtlePulse {
-            0% { opacity: 0.4; transform: scale(0.98); }
-            50% { opacity: 0.7; transform: scale(1.02); }
-            100% { opacity: 0.4; transform: scale(0.98); }
-        }
-        .placeholder-icon {
-            animation: subtlePulse 5s infinite ease-in-out;
+        .service-card:hover .icon-box {
+            background-color: #F4F5F7;
+            transform: scale(1.05);
         }
 
-        /* Mobile Menu Transitions */
+        /* Subtle Placeholder Animation */
+        @keyframes elegantPulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.3; }
+        }
+        .placeholder-icon {
+            animation: elegantPulse 6s infinite ease-in-out;
+        }
+
+        /* Refined Mobile Menu */
         #mobile-menu {
-            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             transform-origin: top;
         }
         #mobile-menu.hidden-menu {
@@ -148,30 +131,39 @@
             pointer-events: auto;
         }
         
-        /* Animated Gradient Background */
-        .bg-animated-gradient {
-            background: linear-gradient(-45deg, #122C50, #1a3e70, #0c1d36, #122C50);
-            background-size: 400% 400%;
+        /* Fine lines */
+        .fine-line {
+            height: 1px;
+            background: rgba(18, 44, 80, 0.1);
+            width: 100%;
         }
+
+        /* Google Translate Overrides */
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
+        body { top: 0px !important; }
+        .goog-tooltip { display: none !important; }
+        .goog-tooltip:hover { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+        #google_translate_element { display: none !important; }
     </style>
 </head>
-<body class="bg-pureWhite font-sans text-charcoal antialiased overflow-x-hidden">
+<body class="bg-pureWhite font-sans text-charcoal antialiased overflow-x-hidden selection:bg-trustNavy selection:text-white">
 
-    <!-- Top Bar - Contact Info -->
-    <div class="bg-trustNavy text-white py-2 px-4 hidden md:block relative z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center text-sm font-sans">
-            <div class="flex items-center gap-6">
-                <a href="#location" class="flex items-center gap-2 hover:text-clinicalRed transition-colors">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-clinicalRed"></i>
+    <!-- Top Bar - Minimal & Distinguished -->
+    <div class="bg-pureWhite text-trustNavy py-2 px-4 hidden md:block relative z-50 border-b border-slateGray">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-xs font-sans tracking-wide">
+            <div class="flex items-center gap-8">
+                <a href="#location" class="flex items-center gap-2 hover:text-clinicalRed transition-colors duration-300">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-clinicalRed"></i>
                     3636 E Imperial Highway, Lynwood, CA 90262
                 </a>
                 <span class="flex items-center gap-2">
-                    <i data-lucide="clock" class="w-4 h-4 text-clinicalRed"></i>
-                    Mon-Sun: 9am - 7pm
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-clinicalRed"></i>
+                    Mon-Sun: 9:00 AM - 7:00 PM
                 </span>
             </div>
             <div class="flex items-center gap-4">
-                <span class="uppercase tracking-widest text-xs font-semibold text-white/80 bg-white/10 px-3 py-1 rounded-full">
+                <span class="uppercase tracking-[0.2em] font-medium text-trustNavy/70">
                     Walk-ins Welcome • Se Habla Español
                 </span>
             </div>
@@ -179,60 +171,70 @@
     </div>
 
     <!-- Main Navigation -->
-    <nav id="navbar" class="border-b border-slateGray sticky top-0 z-40 h-24 flex items-center">
+    <nav id="navbar" class="sticky top-0 z-40 h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="nav-inner flex justify-between items-center h-24 transition-all duration-300">
+            <div class="nav-inner flex justify-between items-center h-24 transition-all duration-500">
                 
                 <!-- Logo -->
-                <a href="#" class="flex-shrink-0 flex items-center gap-3 group">
-                    <div class="relative flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm border border-slate-200 group-hover:shadow-md group-hover:border-clinicalRed/30 transition-all duration-300 group-hover:scale-105">
+                <a href="#" class="flex-shrink-0 flex items-center gap-4 group">
+                    <div class="relative flex items-center justify-center w-10 h-10 group-hover:scale-105 transition-all duration-500">
                         <i data-lucide="heart-pulse" class="w-8 h-8 text-clinicalRed stroke-[1.5]"></i>
                     </div>
                     <div class="flex flex-col justify-center">
-                        <span class="font-serif font-bold text-trustNavy text-xl leading-none group-hover:text-clinicalRed transition-colors duration-300">
+                        <span class="font-serif font-medium text-trustNavy text-xl leading-none tracking-wide group-hover:text-clinicalRed transition-colors duration-500" translate="no">
                             Alma Hispana
                         </span>
-                        <span class="font-sans font-semibold text-clinicalRed text-[0.65rem] tracking-[0.15em] mt-1">
+                        <span class="font-sans font-semibold text-clinicalRed text-[0.6rem] tracking-[0.25em] mt-1.5 opacity-90">
                             MEDICAL CLINIC
                         </span>
                     </div>
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="font-sans font-semibold text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-300">Services</a>
-                    <a href="#about" class="font-sans font-semibold text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-300">About Us</a>
-                    <a href="#location" class="font-sans font-semibold text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-300">Location</a>
+                <div class="hidden md:flex items-center gap-10">
+                    <a href="#services" class="font-sans font-medium text-sm tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[1px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500">Services</a>
+                    <a href="#about" class="font-sans font-medium text-sm tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[1px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500">About Us</a>
+                    <a href="#location" class="font-sans font-medium text-sm tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[1px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500">Location</a>
                     
-                    <a href="tel:3104556491" class="flex items-center gap-2 bg-trustNavy text-white px-6 py-3 rounded-full font-sans font-semibold hover:bg-clinicalRed hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-clinicalRed/20">
-                        <i data-lucide="phone" class="w-[18px] h-[18px]"></i>
-                        (310) 455-6491
-                    </a>
+                    <div class="flex items-center gap-6 border-l border-slateGray pl-6">
+                        <button onclick="toggleLanguage()" class="flex items-center gap-2 text-trustNavy hover:text-clinicalRed transition-colors font-sans font-medium text-xs tracking-widest uppercase group">
+                            <i data-lucide="globe" class="w-4 h-4 group-hover:rotate-12 transition-transform"></i>
+                            <span class="lang-text">Español</span>
+                        </button>
+                        <a href="tel:3104556491" class="flex items-center gap-2 border border-trustNavy/20 text-trustNavy px-6 py-2.5 rounded-full font-sans font-medium text-sm hover:bg-trustNavy hover:text-white transition-all duration-500 group">
+                            <i data-lucide="phone" class="w-4 h-4 group-hover:rotate-12 transition-transform duration-500"></i>
+                            (310) 455-6491
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-trustNavy hover:text-clinicalRed focus:outline-none transition-colors">
-                        <svg id="icon-menu" class="w-8 h-8 block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                        <svg id="icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <button id="mobile-menu-btn" class="text-trustNavy focus:outline-none transition-colors">
+                        <svg id="icon-menu" class="w-7 h-7 block stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <svg id="icon-close" class="w-7 h-7 hidden stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden-menu md:hidden bg-white/95 backdrop-blur-md border-t border-slateGray absolute top-full left-0 w-full shadow-2xl">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#services" class="mobile-link block px-3 py-4 font-sans font-semibold text-charcoal border-b border-slateGray hover:bg-slateGray/50 hover:text-clinicalRed transition-colors">Services</a>
-                <a href="#about" class="mobile-link block px-3 py-4 font-sans font-semibold text-charcoal border-b border-slateGray hover:bg-slateGray/50 hover:text-clinicalRed transition-colors">About Us</a>
-                <a href="#location" class="mobile-link block px-3 py-4 font-sans font-semibold text-charcoal border-b border-slateGray hover:bg-slateGray/50 hover:text-clinicalRed transition-colors">Location</a>
-                <div class="pt-6 pb-2 px-3">
-                    <p class="text-sm text-charcoal mb-3 font-sans flex items-center gap-2">
-                        <i data-lucide="clock" class="w-4 h-4 text-clinicalRed animate-pulse"></i>
+        <div id="mobile-menu" class="hidden-menu md:hidden bg-white/95 backdrop-blur-xl border-t border-slateGray absolute top-full left-0 w-full shadow-2xl">
+            <div class="px-6 pt-4 pb-8 space-y-2">
+                <a href="#services" class="mobile-link block py-4 font-sans font-medium text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide">Services</a>
+                <a href="#about" class="mobile-link block py-4 font-sans font-medium text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide">About Us</a>
+                <a href="#location" class="mobile-link block py-4 font-sans font-medium text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide">Location</a>
+                <div class="pt-8">
+                    <p class="text-xs uppercase tracking-widest text-charcoal mb-4 font-sans flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-clinicalRed animate-pulse"></span>
                         Open Today: 9am - 7pm
                     </p>
-                    <a href="tel:3104556491" class="w-full flex items-center justify-center gap-2 bg-clinicalRed text-white px-6 py-4 rounded-xl font-sans font-semibold shadow-md active:scale-95 transition-transform">
-                        <i data-lucide="phone" class="w-[18px] h-[18px]"></i>
+                    <button onclick="toggleLanguage()" class="w-full flex items-center justify-center gap-2 border border-slateGray text-trustNavy px-6 py-3 rounded-lg font-sans font-medium tracking-widest uppercase mb-3 active:scale-95 transition-transform hover:bg-slateGray/30">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        <span class="lang-text">Español</span>
+                    </button>
+                    <a href="tel:3104556491" class="w-full flex items-center justify-center gap-2 bg-trustNavy text-white px-6 py-4 rounded-lg font-sans font-medium tracking-wide active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
                         Call (310) 455-6491
                     </a>
                 </div>
@@ -240,61 +242,65 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="bg-slateGray overflow-hidden relative">
-        <!-- Parallax Background Element -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/clean-text.png')] opacity-40 mix-blend-multiply bg-fixed z-0"></div>
-        <div class="absolute inset-0 bg-gradient-to-br from-slateGray via-white/80 to-white opacity-80 z-0"></div>
+    <!-- Elevated Hero Section -->
+    <section class="bg-trustNavy overflow-hidden relative">
+        <!-- Minimalist Background texture -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/clean-text.png')] opacity-[0.05] mix-blend-overlay bg-fixed z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-trustNavy via-transparent to-transparent z-0"></div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
                 
-                <div class="max-w-xl" data-aos="fade-right" data-aos-duration="1200">
-                    <span class="font-sans font-semibold uppercase tracking-[0.15em] text-clinicalRed text-sm block mb-6 flex items-center gap-3">
-                        <span class="w-10 h-[2px] bg-clinicalRed inline-block"></span>
-                        Bienvenidos a su clínica
-                    </span>
-                    <h1 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-trustNavy leading-tight mb-6 drop-shadow-sm">
-                        Quality medical care for our <span class="text-clinicalRed">Lynwood</span> community.
+                <div class="max-w-2xl" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="w-12 h-[1px] bg-clinicalRed"></span>
+                        <span class="font-sans font-medium uppercase tracking-[0.2em] text-white/70 text-xs">
+                            Bienvenidos a su clínica
+                        </span>
+                    </div>
+                    <h1 class="font-serif font-light text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-8 tracking-tight">
+                        Exceptional care for the <span class="font-medium text-white italic">Lynwood</span> community.
                     </h1>
-                    <p class="font-sans text-lg text-charcoal mb-10 leading-relaxed opacity-90 max-w-lg">
-                        Compassionate, accessible, and comprehensive healthcare for you and your family. 
-                        From walk-in urgent care to wellness physicals, our bilingual team is here 7 days a week.
+                    <p class="font-sans font-light text-lg md:text-xl text-white/80 mb-12 leading-relaxed max-w-lg">
+                        Compassionate, accessible, and comprehensive healthcare. From urgent walk-ins to wellness physicals, our expert bilingual team is dedicated to your well-being.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:3104556491" class="inline-flex justify-center items-center gap-2 bg-trustNavy text-white px-8 py-4 rounded-full font-sans font-semibold hover:bg-clinicalRed hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-lg group">
-                            <i data-lucide="phone" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
-                            Call Us Now
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="tel:3104556491" class="inline-flex justify-center items-center gap-3 bg-white text-trustNavy px-10 py-4 rounded-full font-sans font-medium hover:bg-transparent hover:text-white border border-white transition-all duration-500 text-sm tracking-wide group">
+                            Call to Consult
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="#location" class="inline-flex justify-center items-center gap-2 bg-white text-trustNavy border-2 border-trustNavy/10 px-8 py-4 rounded-full font-sans font-semibold hover:bg-slateGray hover:border-trustNavy transition-all duration-300 text-lg shadow-sm">
-                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        <a href="#location" class="inline-flex justify-center items-center gap-3 bg-transparent text-white border border-white/30 px-10 py-4 rounded-full font-sans font-medium hover:bg-white/10 hover:border-white transition-all duration-500 text-sm tracking-wide">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
                             Get Directions
                         </a>
                     </div>
                 </div>
                 
-                <div class="relative h-full min-h-[400px] lg:min-h-[500px]" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    <!-- Image Placeholder Component with Float Animation -->
-                    <div class="animate-float bg-white border-2 border-dashed border-trustNavy/20 flex flex-col items-center justify-center text-center p-6 rounded-[2rem] shadow-2xl overflow-hidden h-full min-h-[450px] relative w-full group">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-trustNavy/5 to-transparent"></div>
-                        <div class="text-trustNavy mb-4 placeholder-icon relative z-10">
-                            <svg class="w-20 h-20 mx-auto opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div class="relative h-full min-h-[500px] w-full" data-aos="fade-in" data-aos-duration="2000" data-aos-delay="300">
+                    <!-- Editorial Image Placeholder -->
+                    <div class="absolute inset-0 bg-gradient-to-bl from-white/10 to-transparent rounded-t-[100px] rounded-b-md transform rotate-3 scale-105 opacity-30"></div>
+                    <div class="animate-float bg-slateGray flex flex-col items-center justify-center text-center p-8 rounded-t-[100px] rounded-b-md shadow-2xl overflow-hidden h-full relative z-10 w-full group border border-white/10">
+                        <div class="text-trustNavy mb-6 placeholder-icon relative z-10 opacity-30">
+                            <i data-lucide="image" class="w-16 h-16 stroke-[1]"></i>
                         </div>
-                        <p class="font-sans text-sm text-charcoal italic max-w-sm relative z-10 bg-white/90 p-5 rounded-2xl backdrop-blur-md border border-slateGray shadow-lg transform group-hover:scale-105 transition-transform duration-500">
-                            Hero Image Placeholder: Warm, bright photography of a diverse, caring Hispanic doctor smiling confidently alongside a relieved patient in a clean, modern clinical setting.
+                        <p class="font-sans text-xs text-charcoal/80 uppercase tracking-widest max-w-sm relative z-10 p-6 border border-trustNavy/10 rounded backdrop-blur-md transition-all duration-700">
+                            Editorial Image Placeholder
+                            <span class="block text-[0.65rem] tracking-normal normal-case italic mt-3 opacity-80 font-serif">
+                                High-end, warm photography of a caring Hispanic physician in a pristine, naturally lit clinical setting.
+                            </span>
                         </p>
                     </div>
 
-                    <!-- Floating Badge -->
-                    <div class="absolute -bottom-8 -left-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-2xl border border-white hidden md:block" data-aos="zoom-in" data-aos-delay="800">
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-slateGray rounded-full flex items-center justify-center relative">
-                                <div class="absolute inset-0 rounded-full border-2 border-clinicalRed animate-ping opacity-30"></div>
-                                <i data-lucide="heart-pulse" class="text-clinicalRed w-7 h-7"></i>
+                    <!-- Minimalist Floating Badge -->
+                    <div class="absolute bottom-10 -left-6 bg-white p-5 rounded-lg shadow-2xl border border-slateGray hidden md:block z-20" data-aos="fade-up" data-aos-delay="800">
+                        <div class="flex items-center gap-5">
+                            <div class="w-12 h-12 border border-clinicalRed/30 rounded-full flex items-center justify-center relative">
+                                <div class="absolute inset-0 rounded-full border border-clinicalRed animate-ping opacity-20"></div>
+                                <i data-lucide="heart-pulse" class="text-clinicalRed w-5 h-5 stroke-[1.5]"></i>
                             </div>
                             <div>
-                                <p class="font-serif font-bold text-trustNavy text-xl">Trusted Care</p>
-                                <p class="font-sans text-sm text-charcoal">In the heart of Lynwood</p>
+                                <p class="font-serif font-medium text-trustNavy text-lg">Trusted Care</p>
+                                <p class="font-sans text-xs text-charcoal/60 uppercase tracking-wider mt-0.5">Established Excellence</p>
                             </div>
                         </div>
                     </div>
@@ -303,304 +309,211 @@
         </div>
     </section>
 
-    <!-- Infinite Marquee Banner -->
-    <div class="bg-clinicalRed text-white py-3 border-y border-trustNavy/10 overflow-hidden relative shadow-inner">
-        <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-clinicalRed to-transparent z-10"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-clinicalRed to-transparent z-10"></div>
-        <div class="flex whitespace-nowrap animate-marquee font-sans text-sm font-semibold tracking-wider">
-            <!-- Repeated blocks for seamless looping -->
-            <div class="flex items-center gap-12 px-6">
-                <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Walk-ins Welcome</span>
-                <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Open 7 Days a Week</span>
-                <span class="flex items-center gap-2"><i data-lucide="languages" class="w-4 h-4"></i> Se Habla Español</span>
-                <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> No Appointment Needed</span>
-                <span class="flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4"></i> State-of-the-Art Facility</span>
+    <!-- Refined Marquee Banner -->
+    <div class="bg-white border-b border-slateGray overflow-hidden relative py-4">
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+        <div class="flex whitespace-nowrap animate-marquee font-sans text-xs uppercase tracking-[0.2em] text-trustNavy/60 font-medium">
+            <div class="flex items-center gap-16 px-8">
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Walk-ins Welcome</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Open 7 Days</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Se Habla Español</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> No Appointment Needed</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Modern Facility</span>
             </div>
-            <div class="flex items-center gap-12 px-6">
-                <span class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Walk-ins Welcome</span>
-                <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Open 7 Days a Week</span>
-                <span class="flex items-center gap-2"><i data-lucide="languages" class="w-4 h-4"></i> Se Habla Español</span>
-                <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> No Appointment Needed</span>
-                <span class="flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4"></i> State-of-the-Art Facility</span>
+            <div class="flex items-center gap-16 px-8">
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Walk-ins Welcome</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Open 7 Days</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Se Habla Español</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> No Appointment Needed</span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-3 h-3 text-clinicalRed"></i> Modern Facility</span>
             </div>
         </div>
     </div>
 
-    <!-- Primary Services Section -->
-    <section id="services" class="py-24 bg-pureWhite relative">
-        <div class="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-slateGray/30 to-transparent"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
-                <span class="font-sans font-semibold uppercase tracking-[0.15em] text-clinicalRed text-sm block mb-4">
-                    Comprehensive Care
-                </span>
-                <h2 class="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-trustNavy mb-6">
-                    Medical services designed for your health and peace of mind.
+    <!-- Distinguished Services Section -->
+    <section id="services" class="py-32 bg-pureWhite relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-24" data-aos="fade-up" data-aos-duration="1000">
+                <p class="font-sans font-medium uppercase tracking-[0.25em] text-clinicalRed text-xs mb-6">
+                    Our Specialties
+                </p>
+                <h2 class="font-serif font-light text-4xl md:text-5xl lg:text-5xl text-trustNavy mb-8 leading-tight">
+                    Comprehensive medical services designed for your peace of mind.
                 </h2>
-                <div class="w-24 h-1 bg-clinicalRed mx-auto mb-6 rounded-full"></div>
-                <p class="font-sans text-charcoal text-lg opacity-90">
-                    We provide a wide range of medical services to treat illness, prevent disease, and keep our community healthy. No appointment necessary for urgent needs.
-                </p>
+                <div class="w-16 h-[1px] bg-trustNavy/20 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 
-                <!-- Service Card 1 -->
-                <div class="service-card bg-white p-10 rounded-[2rem] shadow-sm border border-slateGray" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box w-16 h-16 bg-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy">
-                        <i data-lucide="stethoscope" class="w-8 h-8 stroke-[1.5]"></i>
-                    </div>
-                    <h3 class="font-serif font-bold text-2xl text-trustNavy mb-6">
-                        Urgent Care & Illness
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Cold, flu & COVID-19 evaluation</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Fever & sore throat (Strep testing)</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Ear, sinus & respiratory infections</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Bronchitis & mild pneumonia</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Allergies & asthma exacerbations</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="service-card bg-white p-10 rounded-[2rem] shadow-sm border border-slateGray relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-slateGray rounded-bl-[120px] -z-10 opacity-50 transition-transform duration-500 service-card-shape"></div>
-                    <div class="icon-box w-16 h-16 bg-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy">
-                        <i data-lucide="shield-check" class="w-8 h-8 stroke-[1.5]"></i>
-                    </div>
-                    <h3 class="font-serif font-bold text-2xl text-trustNavy mb-6">
-                        Physicals & Screenings
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">School & sports physicals</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">DOT & Pre-employment physicals</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Workers' compensation care</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">TB clearance & health screenings</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">On-site rapid testing & lab services</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="service-card bg-white p-10 rounded-[2rem] shadow-sm border border-slateGray" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box w-16 h-16 bg-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy">
-                        <i data-lucide="droplet" class="w-8 h-8 stroke-[1.5]"></i>
-                    </div>
-                    <h3 class="font-serif font-bold text-2xl text-trustNavy mb-6">
-                        Wellness & Treatments
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">IV hydration & vitamin therapy</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Vaccinations (Flu, COVID, Tdap)</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Nebulizer treatments</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">Basic dermatologic procedures</span>
-                        </li>
-                        <li class="flex items-start gap-3 group/item">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-clinicalRed shrink-0 mt-0.5 stroke-2 group-hover/item:scale-110 transition-transform"></i>
-                            <span class="font-sans text-charcoal leading-relaxed">STD treatment & counseling</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="mt-16 text-center" data-aos="zoom-in" data-aos-delay="400">
-                <p class="font-sans text-charcoal mb-6 inline-flex items-center gap-3 bg-slateGray px-8 py-4 rounded-full text-sm shadow-sm border border-trustNavy/5">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-clinicalRed opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-clinicalRed"></span>
-                    </span>
-                    Cash-pay procedures & injections available. We strive for accessible care for all.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About / Value Proposition -->
-    <section id="about" class="py-24 bg-animated-gradient animate-gradient text-white relative overflow-hidden">
-        <!-- Floating overlay particles -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
-        <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-clinicalRed/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                
-                <div data-aos="fade-right" data-aos-duration="1000">
-                    <!-- Image Placeholder with Glassmorphism frame -->
-                    <div class="bg-white/10 backdrop-blur-md border border-white/20 flex flex-col items-center justify-center text-center p-6 rounded-3xl shadow-2xl h-[550px] w-full relative group overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
-                        <div class="text-white mb-6 placeholder-icon opacity-80 z-10">
-                            <svg class="w-20 h-20 mx-auto transform group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        </div>
-                        <p class="font-sans text-sm text-white/90 italic max-w-sm bg-trustNavy/60 p-5 rounded-2xl shadow-xl border border-white/20 backdrop-blur-lg z-10">
-                            About Us Image Placeholder: Authentic photography showing a patient intake process. A welcoming front desk staff member interacting warmly with a Hispanic family. Warm lighting, clean environment.
-                        </p>
-                    </div>
-                </div>
-                
-                <div data-aos="fade-left" data-aos-duration="1000">
-                    <span class="font-sans font-semibold uppercase tracking-[0.15em] text-clinicalRed text-sm block mb-6 flex items-center gap-3">
-                        <span class="w-10 h-[2px] bg-clinicalRed inline-block"></span>
-                        Nuestra Promesa / Our Promise
-                    </span>
-                    <h2 class="font-serif font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-8 leading-tight drop-shadow-md">
-                        Dedicated to clinical excellence and compassionate care.
-                    </h2>
-                    <div class="space-y-6 font-sans text-white/90 text-lg leading-relaxed mb-12">
-                        <p class="opacity-90">
-                            At Alma Hispana Medical Clinic, we believe that everyone deserves high-quality, accessible healthcare. Our visual identity—the heart and the medical cross—represents our core mission: combining the universal symbol of care with clinical excellence.
-                        </p>
-                        <p class="opacity-90">
-                            We understand the unique needs of the Lynwood community. Whether you need a walk-in evaluation for a sudden illness, a pre-employment physical, or specialized treatments like IV hydration, our bilingual staff is ready to provide reassuring, patient-first care.
-                        </p>
-                    </div>
+                <!-- Editorial Service Card 1 -->
+                <div class="service-card border border-slateGray rounded-xl p-12 relative group flex flex-col h-full overflow-hidden" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-trustNavy/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute top-0 left-12 w-8 h-[1px] bg-clinicalRed transition-all duration-500 group-hover:w-16"></div>
                     
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
-                            <div class="text-clinicalRed mb-5 bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-clinicalRed group-hover:text-white transition-all duration-300">
-                                <i data-lucide="heart-pulse" class="w-8 h-8"></i>
-                            </div>
-                            <h4 class="font-serif font-medium text-xl text-white mb-3">Compassionate</h4>
-                            <p class="font-sans text-sm text-white/70 leading-relaxed">Empathetic, understanding, and always prioritizing your comfort from the moment you walk in.</p>
+                    <div class="relative z-10 flex-grow">
+                        <div class="icon-box w-14 h-14 bg-pureWhite border border-slateGray rounded-full flex items-center justify-center mb-8 text-trustNavy shadow-sm">
+                            <i data-lucide="stethoscope" class="w-6 h-6 stroke-[1.2]"></i>
                         </div>
-                        <div class="bg-white/5 p-8 rounded-2xl backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 group">
-                            <div class="text-clinicalRed mb-5 bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-clinicalRed group-hover:text-white transition-all duration-300">
-                                <i data-lucide="activity" class="w-8 h-8"></i>
-                            </div>
-                            <h4 class="font-serif font-medium text-xl text-white mb-3">Accessible</h4>
-                            <p class="font-sans text-sm text-white/70 leading-relaxed">Clear communication, no complex medical jargon, and open 7 days a week to serve you.</p>
+                        <h3 class="font-serif font-medium text-2xl text-trustNavy mb-4">
+                            Urgent Care
+                        </h3>
+                        <p class="font-sans font-light text-sm text-charcoal/70 mb-8 leading-relaxed">
+                            Fast, expert attention for sudden illnesses and non-life-threatening conditions, ensuring you recover quickly and safely.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Cold, Flu & COVID-19 Care</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Fever & Strep Diagnostics</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Sinus & Respiratory Relief</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Allergy & Asthma Management</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Editorial Service Card 2 -->
+                <div class="service-card border border-slateGray rounded-xl p-12 relative group flex flex-col h-full overflow-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-trustNavy/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute top-0 left-12 w-8 h-[1px] bg-clinicalRed transition-all duration-500 group-hover:w-16"></div>
+                    
+                    <div class="relative z-10 flex-grow">
+                        <div class="icon-box w-14 h-14 bg-pureWhite border border-slateGray rounded-full flex items-center justify-center mb-8 text-trustNavy shadow-sm">
+                            <i data-lucide="shield-check" class="w-6 h-6 stroke-[1.2]"></i>
                         </div>
+                        <h3 class="font-serif font-medium text-2xl text-trustNavy mb-4">
+                            Physicals & Screenings
+                        </h3>
+                        <p class="font-sans font-light text-sm text-charcoal/70 mb-8 leading-relaxed">
+                            Comprehensive evaluations and proactive health screenings designed to protect your long-term well-being.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Comprehensive Wellness Exams</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">School & Sports Physicals</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Preventive Health Screenings</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">On-Site Rapid Testing & Labs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Editorial Service Card 3 -->
+                <div class="service-card border border-slateGray rounded-xl p-12 relative group flex flex-col h-full overflow-hidden" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-trustNavy/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div class="absolute top-0 left-12 w-8 h-[1px] bg-clinicalRed transition-all duration-500 group-hover:w-16"></div>
+                    
+                    <div class="relative z-10 flex-grow">
+                        <div class="icon-box w-14 h-14 bg-pureWhite border border-slateGray rounded-full flex items-center justify-center mb-8 text-trustNavy shadow-sm">
+                            <i data-lucide="droplet" class="w-6 h-6 stroke-[1.2]"></i>
+                        </div>
+                        <h3 class="font-serif font-medium text-2xl text-trustNavy mb-4">
+                            Wellness Treatments
+                        </h3>
+                        <p class="font-sans font-light text-sm text-charcoal/70 mb-8 leading-relaxed">
+                            Restorative therapies and specialized medical treatments to optimize your health, hydration, and vitality.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Premium IV Hydration Therapy</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Essential Immunizations</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Restorative Nebulizer Care</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-80 shadow-[0_0_8px_rgba(195,38,42,0.4)]"></span>
+                                <span class="font-sans font-medium text-sm text-charcoal/90">Minor Dermatologic Procedures</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Location & Contact -->
-    <section id="location" class="py-24 bg-slateGray relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] z-0"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-white rounded-[2.5rem] shadow-2xl border border-slate-200 overflow-hidden" data-aos="zoom-in-up" data-aos-duration="1000">
-                <div class="grid lg:grid-cols-5 h-full">
+    <!-- Location & Contact - High Class Minimalist -->
+    <section id="location" class="py-32 bg-pureWhite relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border border-slateGray rounded-xl overflow-hidden shadow-2xl bg-white" data-aos="fade-up" data-aos-duration="1500">
+                <div class="grid lg:grid-cols-12 h-full">
                     
                     <!-- Contact Info Panel -->
-                    <div class="lg:col-span-2 bg-clinicalRed text-white p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden group/panel">
-                        <!-- Decorative overlay pattern -->
-                        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] bg-[length:24px_24px] group-hover/panel:scale-110 transition-transform duration-1000"></div>
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="lg:col-span-5 bg-trustNavy text-white p-12 lg:p-16 flex flex-col justify-center relative">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                         
                         <div class="relative z-10">
-                            <h2 class="font-serif font-bold text-3xl md:text-4xl mb-10 drop-shadow-md">
-                                Visit Our Clinic
+                            <p class="font-sans font-medium uppercase tracking-[0.25em] text-clinicalRed text-xs mb-6">
+                                Visit Us
+                            </p>
+                            <h2 class="font-serif font-light text-4xl mb-12">
+                                Alma Hispana Clinic
                             </h2>
                             
-                            <div class="space-y-10 font-sans">
-                                <div class="flex items-start gap-5 group/info">
-                                    <div class="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm group-hover/info:bg-white group-hover/info:text-clinicalRed transition-colors duration-300">
-                                        <i data-lucide="map-pin" class="w-6 h-6 currentColor"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-sm mb-2 uppercase tracking-widest text-white/80">Address</h4>
-                                        <p class="text-xl leading-snug font-medium">
-                                            3636 E Imperial Highway<br />
-                                            Lynwood, CA 90262
-                                        </p>
-                                    </div>
+                            <div class="space-y-12 font-sans">
+                                <div class="group">
+                                    <h4 class="font-sans font-medium tracking-widest text-white/50 text-[0.65rem] uppercase mb-3">Address</h4>
+                                    <p class="text-lg font-light leading-relaxed">
+                                        3636 E Imperial Highway<br />
+                                        Lynwood, CA 90262
+                                    </p>
                                 </div>
 
-                                <div class="flex items-start gap-5 group/info">
-                                    <div class="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm group-hover/info:bg-white group-hover/info:text-clinicalRed transition-colors duration-300">
-                                        <i data-lucide="clock" class="w-6 h-6 currentColor"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-sm mb-2 uppercase tracking-widest text-white/80">Operating Hours</h4>
-                                        <p class="text-xl font-medium">
-                                            Monday - Sunday<br />
-                                            9:00 AM - 7:00 PM
-                                        </p>
-                                    </div>
+                                <div class="group">
+                                    <h4 class="font-sans font-medium tracking-widest text-white/50 text-[0.65rem] uppercase mb-3">Hours of Operation</h4>
+                                    <p class="text-lg font-light leading-relaxed">
+                                        Monday &mdash; Sunday<br />
+                                        9:00 AM &mdash; 7:00 PM
+                                    </p>
                                 </div>
 
-                                <div class="flex items-start gap-5 group/info">
-                                    <div class="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm group-hover/info:bg-white group-hover/info:text-clinicalRed transition-colors duration-300">
-                                        <i data-lucide="phone" class="w-6 h-6 currentColor"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-sm mb-2 uppercase tracking-widest text-white/80">Contact</h4>
-                                        <p class="text-2xl font-bold tracking-wide">
-                                            (310) 455-6491
-                                        </p>
-                                    </div>
+                                <div class="group">
+                                    <h4 class="font-sans font-medium tracking-widest text-white/50 text-[0.65rem] uppercase mb-3">Direct Line</h4>
+                                    <p class="text-2xl font-serif tracking-wide">
+                                        (310) 455-6491
+                                    </p>
                                 </div>
-                            </div>
-
-                            <div class="mt-12 pt-10 border-t border-white/20">
-                                <p class="font-sans text-white/90 mb-6 font-medium">No appointment needed for most services.</p>
-                                <a href="tel:3104556491" class="inline-flex justify-center items-center gap-3 bg-white text-clinicalRed px-8 py-4 rounded-full font-sans font-bold hover:bg-trustNavy hover:text-white hover:scale-105 transition-all duration-300 w-full sm:w-auto text-lg shadow-xl">
-                                    <i data-lucide="phone" class="w-5 h-5"></i>
-                                    Call Ahead
-                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Map Placeholder -->
-                    <div class="lg:col-span-3 min-h-[500px] bg-slate-200 relative group overflow-hidden">
-                        <div class="absolute inset-0 bg-trustNavy/5 z-0"></div>
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 z-10">
-                            <div class="w-24 h-24 bg-white rounded-full shadow-2xl flex items-center justify-center mb-6 text-trustNavy transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 relative">
-                                <div class="absolute inset-0 border-4 border-clinicalRed/20 rounded-full animate-ping"></div>
-                                <i data-lucide="map" class="w-12 h-12"></i>
-                            </div>
-                            <div class="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-slateGray max-w-sm transform group-hover:translate-y-2 transition-all duration-500">
-                                <p class="font-sans text-charcoal font-bold text-lg">
-                                    Interactive Map Placeholder
-                                </p>
-                                <p class="text-sm text-charcoal/70 mt-3 leading-relaxed">
-                                    Google Maps Embed targeting: <br><span class="font-medium text-trustNavy">3636 E Imperial Highway, Lynwood, CA 90262</span>
-                                </p>
-                            </div>
-                        </div>
+                    <!-- Interactive Universal Map Embed -->
+                    <div class="lg:col-span-7 min-h-[500px] lg:min-h-[600px] relative bg-slateGray">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=3636%20E%20Imperial%20Highway,%20Lynwood,%20CA%2090262&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; position: absolute; top: 0; left: 0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Alma Hispana Medical Clinic Location">
+                        </iframe>
                     </div>
 
                 </div>
@@ -608,70 +521,61 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-trustNavy text-white pt-24 pb-10 border-t-8 border-clinicalRed">
+    <!-- Minimalist High-End Footer -->
+    <footer class="bg-pureWhite text-charcoal pt-24 pb-12 border-t border-slateGray">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-12 gap-12 lg:gap-16 mb-16">
+            <div class="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
                 
                 <div class="md:col-span-5">
-                    <!-- White monochrome version of logo for dark background -->
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="relative flex items-center justify-center w-14 h-14 bg-transparent border-[2.5px] border-white rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-                            <i data-lucide="heart-pulse" class="w-8 h-8 text-white stroke-2"></i>
-                        </div>
+                        <i data-lucide="heart-pulse" class="w-6 h-6 text-clinicalRed stroke-[1.5]"></i>
                         <div class="flex flex-col justify-center">
-                            <span class="font-serif font-bold text-white text-3xl leading-none">
+                            <span class="font-serif font-medium text-trustNavy text-xl leading-none">
                                 Alma Hispana
                             </span>
-                            <span class="font-sans font-semibold text-white/90 text-[0.7rem] tracking-[0.25em] mt-2">
+                            <span class="font-sans font-semibold text-charcoal/50 text-[0.6rem] tracking-[0.25em] mt-1.5">
                                 MEDICAL CLINIC
                             </span>
                         </div>
                     </div>
-                    <p class="font-sans text-white/70 text-base leading-relaxed max-w-sm pr-4">
-                        Dedicated to providing compassionate, accessible, and excellent medical care to the Lynwood community. Your health is our priority.
+                    <p class="font-sans font-light text-charcoal/70 text-sm leading-relaxed max-w-sm pr-4">
+                        A distinguished standard of care, accessible to the community. Excellence in medicine, rooted in profound compassion.
                     </p>
                 </div>
 
                 <div class="md:col-span-3">
-                    <h4 class="font-sans font-bold uppercase tracking-[0.15em] text-white text-sm mb-6 flex items-center gap-3">
-                        <span class="w-6 h-[2px] bg-clinicalRed"></span> Quick Links
+                    <h4 class="font-sans font-medium uppercase tracking-[0.2em] text-trustNavy text-[0.65rem] mb-8">
+                        Navigation
                     </h4>
-                    <ul class="space-y-4 font-sans text-base text-white/70">
-                        <li><a href="#services" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">Our Services</a></li>
-                        <li><a href="#about" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">About the Clinic</a></li>
-                        <li><a href="#location" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">Location & Hours</a></li>
-                        <li><a href="#" class="hover:text-clinicalRed hover:translate-x-2 inline-block transition-all duration-300">Patient Forms</a></li>
+                    <ul class="space-y-4 font-sans font-light text-sm text-charcoal/80">
+                        <li><a href="#services" class="hover:text-clinicalRed transition-colors duration-300">Clinical Services</a></li>
+                        <li><a href="#about" class="hover:text-clinicalRed transition-colors duration-300">Our Heritage</a></li>
+                        <li><a href="#location" class="hover:text-clinicalRed transition-colors duration-300">Location Details</a></li>
+                        <li><a href="#" class="hover:text-clinicalRed transition-colors duration-300">Patient Resources</a></li>
                     </ul>
                 </div>
 
                 <div class="md:col-span-4">
-                    <h4 class="font-sans font-bold uppercase tracking-[0.15em] text-white text-sm mb-6 flex items-center gap-3">
-                        <span class="w-6 h-[2px] bg-clinicalRed"></span> Contact Us
+                    <h4 class="font-sans font-medium uppercase tracking-[0.2em] text-trustNavy text-[0.65rem] mb-8">
+                        Direct Contact
                     </h4>
-                    <ul class="space-y-5 font-sans text-base text-white/80">
-                        <li class="flex items-start gap-4 hover:text-white transition-colors">
-                            <div class="bg-white/10 p-2 rounded-lg shrink-0"><i data-lucide="map-pin" class="text-clinicalRed w-5 h-5"></i></div>
-                            <span class="leading-snug pt-1">3636 E Imperial Highway<br/>Lynwood, CA 90262</span>
+                    <ul class="space-y-4 font-sans font-light text-sm text-charcoal/80">
+                        <li class="flex items-start gap-3 hover:text-trustNavy transition-colors">
+                            <span class="leading-relaxed">3636 E Imperial Highway<br/>Lynwood, CA 90262</span>
                         </li>
-                        <li class="flex items-center gap-4 hover:text-white transition-colors">
-                            <div class="bg-white/10 p-2 rounded-lg shrink-0"><i data-lucide="phone" class="text-clinicalRed w-5 h-5"></i></div>
-                            <span class="font-medium text-lg tracking-wide">(310) 455-6491</span>
-                        </li>
-                        <li class="flex items-center gap-4 hover:text-white transition-colors">
-                            <div class="bg-white/10 p-2 rounded-lg shrink-0"><i data-lucide="clock" class="text-clinicalRed w-5 h-5"></i></div>
-                            <span class="pt-0.5">Mon-Sun: 9am - 7pm</span>
+                        <li class="flex items-center gap-3 hover:text-trustNavy transition-colors pt-2">
+                            <span class="font-medium tracking-wide">(310) 455-6491</span>
                         </li>
                     </ul>
                 </div>
 
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-sm text-white/50">
-                <p>&copy; 2024 Alma Hispana Medical Clinic. All rights reserved.</p>
+            <div class="border-t border-slateGray pt-8 flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-xs text-charcoal/40 font-light tracking-wide">
+                <p>&copy; 2026 Alma Hispana Medical Clinic. All rights reserved.</p>
                 <div class="flex gap-8">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-trustNavy transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-trustNavy transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -690,10 +594,10 @@
 
         // Initialize AOS (Animate on Scroll)
         AOS.init({
-            once: true, // whether animation should happen only once - while scrolling down
-            offset: 80, // offset (in px) from the original trigger point
-            duration: 900, // values from 0 to 3000, with step 50ms
-            easing: 'ease-out-cubic', // default easing for AOS animations
+            once: true,
+            offset: 50,
+            duration: 1000,
+            easing: 'ease-out-quart',
         });
 
         // Sticky Navbar Script
@@ -722,7 +626,6 @@
 
         btn.addEventListener('click', toggleMenu);
 
-        // Close mobile menu when clicking a link
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if(menu.classList.contains('active-menu')) {
@@ -730,6 +633,41 @@
                 }
             });
         });
+
+        // Language Translation Script
+        let isSpanish = false;
+        function toggleLanguage() {
+            isSpanish = !isSpanish;
+            const targetLang = isSpanish ? 'es' : 'en';
+            
+            // Update button text
+            document.querySelectorAll('.lang-text').forEach(el => {
+                el.innerText = isSpanish ? 'English' : 'Español';
+            });
+
+            // Trigger Google Translate dropdown
+            const selectField = document.querySelector('.goog-te-combo');
+            if (selectField) {
+                selectField.value = targetLang;
+                selectField.dispatchEvent(new Event('change'));
+            } else {
+                console.warn("Translation engine not loaded yet.");
+            }
+        }
+
+        // Initialize Google Translate Widget Hidden
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
     </script>
+    
+    <!-- Hidden element for Google Translate to attach to -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
