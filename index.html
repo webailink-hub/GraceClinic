@@ -493,17 +493,22 @@
                         <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-trustNavy/20 z-0"></div>
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-clinicalRed/30 z-0"></div>
                         
-                        <div class="bg-slateGray flex flex-col items-center justify-center text-center h-[550px] w-full relative z-10 overflow-hidden group">
-                            <!-- Background pattern instead of an image for a clean look, or user can replace -->
-                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
+                        <div class="bg-slateGray h-[550px] w-full relative z-10 overflow-hidden group">
+                            <img src="https://i.imgur.com/aDb5tia.jpeg" alt="Our Mission - Excellence & Care" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out">
                             
-                            <div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-6 shadow-md text-trustNavy group-hover:scale-110 transition-transform duration-500">
-                                <i data-lucide="shield-check" class="w-8 h-8 stroke-[1]"></i>
+                            <!-- Elegant overlay gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-trustNavy/90 via-trustNavy/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none"></div>
+                            
+                            <!-- Text moved to a premium bottom-left overlay -->
+                            <div class="absolute bottom-8 left-8 right-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-4 border border-white/30 text-white">
+                                    <i data-lucide="shield-check" class="w-6 h-6 stroke-[1.5]"></i>
+                                </div>
+                                <h3 class="font-serif text-3xl text-white mb-2 drop-shadow-md" data-i18n="about-photo-h">Our Mission</h3>
+                                <p class="font-sans text-[0.65rem] text-white/80 uppercase tracking-widest font-semibold drop-shadow-sm" data-i18n="about-photo-p">
+                                    Excellence & Care
+                                </p>
                             </div>
-                            <h3 class="font-serif text-2xl text-trustNavy mb-2" data-i18n="about-photo-h">Our Mission</h3>
-                            <p class="font-sans text-xs text-charcoal/60 uppercase tracking-widest max-w-[200px] font-medium" data-i18n="about-photo-p">
-                                Excellence & Care
-                            </p>
                         </div>
                     </div>
                 </div>
