@@ -27,7 +27,7 @@
                         warmAmber: '#E86A33',
                         pureWhite: '#FFFFFF',
                         slateGray: '#F4F5F7',
-                        charcoal: '#222222' /* Darkened charcoal for even higher contrast */
+                        charcoal: '#1A1A1A' /* Extremely dark charcoal for maximum contrast */
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
@@ -169,15 +169,15 @@
 <body class="bg-pureWhite font-sans text-charcoal antialiased overflow-x-hidden selection:bg-clinicalRed selection:text-white relative">
 
     <!-- Top Bar - Minimal & Distinguished -->
-    <div class="bg-pureWhite text-trustNavy py-2 px-4 hidden md:block relative z-50 border-b border-slateGray">
+    <div class="bg-pureWhite text-trustNavy py-3 px-4 hidden md:block relative z-50 border-b border-slateGray">
         <div class="max-w-7xl mx-auto flex justify-between items-center text-sm font-sans tracking-wide font-bold">
             <div class="flex items-center gap-8">
                 <a href="#location" class="flex items-center gap-2 hover:text-clinicalRed transition-colors duration-300">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-clinicalRed"></i>
+                    <i data-lucide="map-pin" class="w-5 h-5 text-clinicalRed"></i>
                     3636 E Imperial Highway, Lynwood, CA 90262
                 </a>
                 <span class="flex items-center gap-2">
-                    <i data-lucide="clock" class="w-4 h-4 text-clinicalRed"></i>
+                    <i data-lucide="clock" class="w-5 h-5 text-clinicalRed"></i>
                     <span data-i18n="top-hours">Mon-Sun: 9:00 AM - 7:00 PM</span>
                 </span>
             </div>
@@ -200,10 +200,10 @@
                         <i data-lucide="heart-pulse" class="w-10 h-10 text-clinicalRed stroke-[2]"></i>
                     </div>
                     <div class="flex flex-col justify-center">
-                        <span class="font-serif font-bold text-trustNavy text-2xl leading-none tracking-wide group-hover:text-clinicalRed transition-colors duration-500" translate="no">
+                        <span class="font-serif font-extrabold text-trustNavy text-2xl leading-none tracking-wide group-hover:text-clinicalRed transition-colors duration-500" translate="no">
                             Alma Hispana
                         </span>
-                        <span class="font-sans font-bold text-clinicalRed text-[0.7rem] tracking-[0.25em] mt-1.5" data-i18n="nav-clinic">
+                        <span class="font-sans font-extrabold text-clinicalRed text-[0.7rem] tracking-[0.25em] mt-1.5" data-i18n="nav-clinic">
                             MEDICAL CLINIC
                         </span>
                     </div>
@@ -211,17 +211,17 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-10">
-                    <a href="#services" class="font-sans font-bold text-base tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500" data-i18n="nav-services">Services</a>
-                    <a href="#about" class="font-sans font-bold text-base tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500" data-i18n="nav-about">Our Heritage</a>
-                    <a href="#location" class="font-sans font-bold text-base tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500" data-i18n="nav-location">Location</a>
+                    <a href="#services" class="font-sans font-extrabold text-base tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500" data-i18n="nav-services">Services</a>
+                    <a href="#about" class="font-sans font-extrabold text-base tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500" data-i18n="nav-about">Our Heritage</a>
+                    <a href="#location" class="font-sans font-extrabold text-base tracking-wide text-charcoal hover:text-clinicalRed transition-colors relative after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-[2px] after:bg-clinicalRed after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left after:duration-500" data-i18n="nav-location">Location</a>
                     
-                    <div class="flex items-center gap-6 border-l border-slateGray pl-6">
+                    <div class="flex items-center gap-6 border-l-2 border-slateGray pl-6">
                         <!-- Custom Native Translation Button -->
-                        <button onclick="toggleLanguage()" class="flex items-center gap-2 text-trustNavy hover:text-clinicalRed transition-colors font-sans font-bold text-sm tracking-widest uppercase group focus:outline-none">
-                            <i data-lucide="globe" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                        <button onclick="toggleLanguage()" class="flex items-center gap-2 text-trustNavy hover:text-clinicalRed transition-colors font-sans font-extrabold text-sm tracking-widest uppercase group focus:outline-none">
+                            <i data-lucide="globe" class="w-6 h-6 group-hover:rotate-12 transition-transform"></i>
                             <span class="lang-text">Español</span>
                         </button>
-                        <a href="tel:3104556491" class="flex items-center gap-2 border-2 border-trustNavy/30 text-trustNavy px-7 py-3 rounded-full font-sans font-bold text-base hover:bg-clinicalRed hover:border-clinicalRed hover:text-white hover:shadow-lg transition-all duration-500 group">
+                        <a href="tel:3104556491" class="flex items-center gap-2 border-2 border-trustNavy text-trustNavy px-7 py-3 rounded-full font-sans font-extrabold text-base hover:bg-clinicalRed hover:border-clinicalRed hover:text-white hover:shadow-lg transition-all duration-500 group">
                             <i data-lucide="phone" class="w-5 h-5 group-hover:animate-bounce transition-transform duration-500"></i>
                             (310) 455-6491
                         </a>
@@ -231,8 +231,8 @@
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-trustNavy focus:outline-none transition-colors">
-                        <svg id="icon-menu" class="w-8 h-8 block stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                        <svg id="icon-close" class="w-8 h-8 hidden stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <svg id="icon-menu" class="w-10 h-10 block stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <svg id="icon-close" class="w-10 h-10 hidden stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
             </div>
@@ -241,20 +241,20 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden-menu md:hidden bg-white/95 backdrop-blur-xl border-t border-slateGray absolute top-full left-0 w-full shadow-2xl">
             <div class="px-6 pt-4 pb-8 space-y-2">
-                <a href="#services" class="mobile-link block py-4 font-sans font-bold text-lg text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide" data-i18n="nav-services">Services</a>
-                <a href="#about" class="mobile-link block py-4 font-sans font-bold text-lg text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide" data-i18n="nav-about">Our Heritage</a>
-                <a href="#location" class="mobile-link block py-4 font-sans font-bold text-lg text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide" data-i18n="nav-location">Location</a>
+                <a href="#services" class="mobile-link block py-4 font-sans font-extrabold text-xl text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide" data-i18n="nav-services">Services</a>
+                <a href="#about" class="mobile-link block py-4 font-sans font-extrabold text-xl text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide" data-i18n="nav-about">Our Heritage</a>
+                <a href="#location" class="mobile-link block py-4 font-sans font-extrabold text-xl text-charcoal border-b border-slateGray/50 hover:text-clinicalRed transition-colors tracking-wide" data-i18n="nav-location">Location</a>
                 <div class="pt-8">
-                    <p class="text-sm uppercase tracking-widest text-charcoal mb-4 font-sans font-bold flex items-center gap-2">
+                    <p class="text-base uppercase tracking-widest text-charcoal mb-4 font-sans font-extrabold flex items-center gap-2">
                         <span class="w-3 h-3 rounded-full bg-clinicalRed animate-pulse"></span>
                         <span data-i18n="top-hours">Mon-Sun: 9:00 AM - 7:00 PM</span>
                     </p>
-                    <button onclick="toggleLanguage()" class="w-full flex items-center justify-center gap-2 border-2 border-slateGray text-trustNavy px-6 py-4 rounded-lg font-sans font-bold text-lg tracking-widest uppercase mb-4 active:scale-95 transition-transform hover:bg-slateGray/30 focus:outline-none">
-                        <i data-lucide="globe" class="w-5 h-5"></i>
+                    <button onclick="toggleLanguage()" class="w-full flex items-center justify-center gap-2 border-2 border-slateGray text-trustNavy px-6 py-4 rounded-lg font-sans font-extrabold text-xl tracking-widest uppercase mb-4 active:scale-95 transition-transform hover:bg-slateGray/30 focus:outline-none">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
                         <span class="lang-text">Español</span>
                     </button>
-                    <a href="tel:3104556491" class="w-full flex items-center justify-center gap-2 bg-trustNavy text-white px-6 py-4 rounded-lg font-sans font-bold text-lg tracking-wide active:scale-95 transition-transform">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    <a href="tel:3104556491" class="w-full flex items-center justify-center gap-2 bg-trustNavy text-white px-6 py-4 rounded-lg font-sans font-extrabold text-xl tracking-wide active:scale-95 transition-transform">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
                         <span data-i18n="loc-phone-t">Call</span> (310) 455-6491
                     </a>
                 </div>
@@ -265,8 +265,8 @@
     <!-- Elevated Hero Section (Warm & Premium Latino Feel) -->
     <section class="bg-trustNavy overflow-hidden relative min-h-[90vh] flex items-center">
         <!-- Warm Glowing Blobs to create comfortable, welcoming atmosphere -->
-        <div class="absolute top-0 -left-40 w-[600px] h-[600px] bg-clinicalRed/20 rounded-full mix-blend-screen filter blur-[120px] animate-blob pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warmAmber/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob-reverse pointer-events-none"></div>
+        <div class="absolute top-0 -left-40 w-[600px] h-[600px] bg-clinicalRed/30 rounded-full mix-blend-screen filter blur-[120px] animate-blob pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warmAmber/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob-reverse pointer-events-none"></div>
         
         <!-- Texture overlay -->
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/clean-text.png')] opacity-[0.05] mix-blend-overlay bg-fixed z-0 pointer-events-none"></div>
@@ -276,31 +276,31 @@
                 
                 <div class="max-w-2xl">
                     <div class="flex items-center gap-4 mb-8">
-                        <span class="w-16 h-[2px] bg-clinicalRed"></span>
+                        <span class="w-16 h-[3px] bg-clinicalRed"></span>
                         <div class="reveal-wrapper">
-                            <span class="font-sans font-bold uppercase tracking-[0.2em] text-white text-sm reveal-text" data-i18n="hero-welcome">
+                            <span class="font-sans font-extrabold uppercase tracking-[0.2em] text-white text-base reveal-text" data-i18n="hero-welcome">
                                 BIENVENIDOS A SU CLÍNICA
                             </span>
                         </div>
                     </div>
                     
-                    <h1 class="font-serif font-bold text-5xl md:text-6xl lg:text-[5rem] text-white leading-[1.1] mb-8 tracking-tight drop-shadow-lg">
+                    <h1 class="font-serif font-extrabold text-5xl md:text-6xl lg:text-[5rem] text-white leading-[1.1] mb-8 tracking-tight drop-shadow-lg">
                         <div class="reveal-wrapper"><span class="reveal-text delay-100" data-i18n="hero-h1-1">Exceptional care</span></div><br/>
-                        <div class="reveal-wrapper"><span class="reveal-text delay-200" data-i18n="hero-h1-2">for our <span class="font-bold text-white italic">Familia</span> &</span></div><br/>
+                        <div class="reveal-wrapper"><span class="reveal-text delay-200" data-i18n="hero-h1-2">for our <span class="font-extrabold text-clinicalRed italic">Familia</span> &</span></div><br/>
                         <div class="reveal-wrapper"><span class="reveal-text delay-300" data-i18n="hero-h1-3">Community.</span></div>
                     </h1>
                     
-                    <p class="font-sans font-medium text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-lg drop-shadow-md" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1500" data-i18n="hero-p">
+                    <p class="font-sans font-semibold text-xl md:text-2xl text-white mb-12 leading-relaxed max-w-lg drop-shadow-md" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1500" data-i18n="hero-p">
                         Compassionate, high-quality healthcare tailored for you. From urgent walk-ins to essential wellness screenings, our bilingual medical team treats you like family.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-5" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1500">
-                        <a href="tel:3104556491" class="inline-flex justify-center items-center gap-3 bg-white text-trustNavy px-10 py-5 rounded-full font-sans font-bold hover:bg-clinicalRed hover:text-white hover:border-clinicalRed border-2 border-white transition-all duration-500 text-base tracking-wide group shadow-xl">
+                    <div class="flex flex-col sm:flex-row gap-6" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1500">
+                        <a href="tel:3104556491" class="inline-flex justify-center items-center gap-3 bg-white text-trustNavy px-10 py-5 rounded-full font-sans font-extrabold hover:bg-clinicalRed hover:text-white hover:border-clinicalRed border-2 border-white transition-all duration-500 text-lg tracking-wide group shadow-xl">
                             <span data-i18n="hero-btn-call">Call to Consult</span>
-                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-2 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-2 transition-transform"></i>
                         </a>
-                        <a href="#location" class="inline-flex justify-center items-center gap-3 bg-transparent text-white border-2 border-white/50 px-10 py-5 rounded-full font-sans font-bold hover:bg-white/20 hover:border-white transition-all duration-500 text-base tracking-wide backdrop-blur-sm">
-                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        <a href="#location" class="inline-flex justify-center items-center gap-3 bg-transparent text-white border-2 border-white/80 px-10 py-5 rounded-full font-sans font-extrabold hover:bg-white/20 hover:border-white transition-all duration-500 text-lg tracking-wide backdrop-blur-sm">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
                             <span data-i18n="hero-btn-dir">Get Directions</span>
                         </a>
                     </div>
@@ -308,26 +308,26 @@
                 
                 <div class="relative h-full min-h-[500px] w-full mt-10 lg:mt-0" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="300">
                     <!-- Premium Hero Image Frame -->
-                    <div class="absolute inset-0 bg-gradient-to-bl from-clinicalRed/20 to-transparent rounded-t-[100px] rounded-b-md transform rotate-3 scale-105 opacity-40 blur-sm"></div>
+                    <div class="absolute inset-0 bg-gradient-to-bl from-clinicalRed/40 to-transparent rounded-t-[100px] rounded-b-md transform rotate-3 scale-105 opacity-50 blur-sm"></div>
                     
-                    <div class="animate-float relative z-10 rounded-t-[100px] rounded-b-md shadow-2xl overflow-hidden h-full border border-white/10 group bg-slateGray">
+                    <div class="animate-float relative z-10 rounded-t-[100px] rounded-b-md shadow-2xl overflow-hidden h-full border-2 border-white/20 group bg-slateGray">
                         <!-- Glass glare overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none z-20"></div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none z-20"></div>
                         
                         <!-- Client Image -->
                         <img src="https://i.imgur.com/uxzbJox.jpeg" alt="Alma Hispana Medical Professional" class="w-full h-full object-cover min-h-[500px] md:min-h-[600px] scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out">
                     </div>
 
                     <!-- Glowing Glassmorphism Badge -->
-                    <div class="absolute bottom-10 -left-8 bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-white/50 hidden md:block z-30 hover:-translate-y-2 transition-transform duration-500">
+                    <div class="absolute bottom-10 -left-8 bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border-2 border-white hidden md:block z-30 hover:-translate-y-2 transition-transform duration-500">
                         <div class="flex items-center gap-5">
                             <div class="w-16 h-16 rounded-full flex items-center justify-center relative bg-trustNavy/5">
-                                <div class="absolute inset-0 rounded-full border-2 border-clinicalRed animate-ping opacity-30"></div>
-                                <i data-lucide="heart-pulse" class="text-clinicalRed w-8 h-8 stroke-[2]"></i>
+                                <div class="absolute inset-0 rounded-full border-2 border-clinicalRed animate-ping opacity-50"></div>
+                                <i data-lucide="heart-pulse" class="text-clinicalRed w-8 h-8 stroke-[2.5]"></i>
                             </div>
                             <div>
-                                <p class="font-serif font-bold text-trustNavy text-xl" data-i18n="badge-title">Trusted Care</p>
-                                <p class="font-sans text-xs font-extrabold text-clinicalRed uppercase tracking-widest mt-1" data-i18n="badge-sub">La Familia Primero</p>
+                                <p class="font-serif font-extrabold text-trustNavy text-2xl" data-i18n="badge-title">Trusted Care</p>
+                                <p class="font-sans text-sm font-extrabold text-clinicalRed uppercase tracking-widest mt-1" data-i18n="badge-sub">La Familia Primero</p>
                             </div>
                         </div>
                     </div>
@@ -337,23 +337,23 @@
     </section>
 
     <!-- Refined Marquee Banner -->
-    <div class="bg-pureWhite border-b border-slateGray overflow-hidden relative py-6 shadow-sm">
+    <div class="bg-pureWhite border-b-2 border-slateGray overflow-hidden relative py-6 shadow-sm">
         <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-pureWhite to-transparent z-10 pointer-events-none"></div>
         <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-pureWhite to-transparent z-10 pointer-events-none"></div>
-        <div class="flex whitespace-nowrap animate-marquee font-sans text-sm uppercase tracking-[0.25em] text-trustNavy font-bold">
+        <div class="flex whitespace-nowrap animate-marquee font-sans text-base uppercase tracking-[0.25em] text-trustNavy font-extrabold">
             <div class="flex items-center gap-16 px-8">
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-1">Walk-ins Welcome</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-2">Open 7 Days</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-3">Se Habla Español</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-4">No Appointment Needed</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-5">Modern Facility</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-1">Walk-ins Welcome</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-2">Open 7 Days</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-3">Se Habla Español</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-4">No Appointment Needed</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-5">Modern Facility</span></span>
             </div>
             <div class="flex items-center gap-16 px-8">
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-1">Walk-ins Welcome</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-2">Open 7 Days</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-3">Se Habla Español</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-4">No Appointment Needed</span></span>
-                <span class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-5">Modern Facility</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-1">Walk-ins Welcome</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-2">Open 7 Days</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-3">Se Habla Español</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-4">No Appointment Needed</span></span>
+                <span class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-clinicalRed stroke-[3]"></i> <span data-i18n="m-5">Modern Facility</span></span>
             </div>
         </div>
     </div>
@@ -362,47 +362,47 @@
     <section id="services" class="py-32 bg-slateGray/20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up" data-aos-duration="1000">
-                <p class="font-sans font-bold uppercase tracking-[0.25em] text-clinicalRed text-sm mb-4" data-i18n="serv-sub">
+                <p class="font-sans font-extrabold uppercase tracking-[0.25em] text-clinicalRed text-base mb-4" data-i18n="serv-sub">
                     Our Specialties
                 </p>
-                <h2 class="font-serif font-bold text-4xl md:text-5xl lg:text-5xl text-trustNavy mb-8 leading-tight" data-i18n="serv-h2">
+                <h2 class="font-serif font-extrabold text-4xl md:text-5xl lg:text-5xl text-trustNavy mb-8 leading-tight" data-i18n="serv-h2">
                     Comprehensive medical services designed for your peace of mind.
                 </h2>
-                <div class="w-20 h-[2px] bg-clinicalRed/70 mx-auto"></div>
+                <div class="w-20 h-[3px] bg-clinicalRed mx-auto"></div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 
                 <!-- Service Card 1 -->
                 <div class="service-card border-2 border-slateGray rounded-2xl p-10 lg:p-12 group flex flex-col h-full shadow-sm hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200">
-                    <div class="absolute top-0 left-10 w-12 h-[3px] bg-clinicalRed transition-all duration-700 group-hover:w-32 z-20"></div>
+                    <div class="absolute top-0 left-10 w-12 h-[4px] bg-clinicalRed transition-all duration-700 group-hover:w-32 z-20"></div>
                     
                     <div class="relative z-10 flex-grow">
                         <div class="icon-box w-20 h-20 border-2 border-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy bg-white shadow-sm">
-                            <i data-lucide="stethoscope" class="w-10 h-10 stroke-[1.5]"></i>
+                            <i data-lucide="stethoscope" class="w-10 h-10 stroke-[2]"></i>
                         </div>
                         <h3 class="font-serif font-bold text-3xl text-trustNavy mb-5" data-i18n="serv-c1-t">
                             Urgent Care
                         </h3>
-                        <p class="font-sans font-medium text-base text-charcoal mb-8 leading-relaxed" data-i18n="serv-c1-p">
+                        <p class="font-sans font-semibold text-lg text-charcoal mb-8 leading-relaxed" data-i18n="serv-c1-p">
                             Fast, expert attention for sudden illnesses and non-life-threatening conditions, ensuring you recover quickly and safely.
                         </p>
                         <ul class="space-y-5">
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c1-li1">Cold, Flu & COVID-19 Care</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c1-li1">Cold, Flu & COVID-19 Care</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c1-li2">Fever & Strep Diagnostics</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c1-li2">Fever & Strep Diagnostics</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c1-li3">Sinus & Respiratory Relief</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c1-li3">Sinus & Respiratory Relief</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c1-li4">Allergy & Asthma Management</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c1-li4">Allergy & Asthma Management</span>
                             </li>
                         </ul>
                     </div>
@@ -410,69 +410,69 @@
 
                 <!-- Service Card 2 -->
                 <div class="service-card border-2 border-slateGray rounded-2xl p-10 lg:p-12 group flex flex-col h-full shadow-sm hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
-                    <div class="absolute top-0 left-10 w-12 h-[3px] bg-clinicalRed transition-all duration-700 group-hover:w-32 z-20"></div>
+                    <div class="absolute top-0 left-10 w-12 h-[4px] bg-clinicalRed transition-all duration-700 group-hover:w-32 z-20"></div>
                     
                     <div class="relative z-10 flex-grow">
                         <div class="icon-box w-20 h-20 border-2 border-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy bg-white shadow-sm">
-                            <i data-lucide="shield-check" class="w-10 h-10 stroke-[1.5]"></i>
+                            <i data-lucide="shield-check" class="w-10 h-10 stroke-[2]"></i>
                         </div>
                         <h3 class="font-serif font-bold text-3xl text-trustNavy mb-5" data-i18n="serv-c2-t">
                             Physicals & Screenings
                         </h3>
-                        <p class="font-sans font-medium text-base text-charcoal mb-8 leading-relaxed" data-i18n="serv-c2-p">
+                        <p class="font-sans font-semibold text-lg text-charcoal mb-8 leading-relaxed" data-i18n="serv-c2-p">
                             Comprehensive evaluations and proactive health screenings designed to protect your long-term well-being.
                         </p>
                         <ul class="space-y-5">
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c2-li1">Comprehensive Wellness Exams</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c2-li1">Comprehensive Wellness Exams</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c2-li2">School & Sports Physicals</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c2-li2">School & Sports Physicals</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c2-li3">Preventive Health Screenings</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c2-li3">Preventive Health Screenings</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c2-li4">On-Site Rapid Testing & Labs</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c2-li4">On-Site Rapid Testing & Labs</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Service Card 3 -->
+                <!-- Service Card 3 (Updated for Aesthetics & Wellness) -->
                 <div class="service-card border-2 border-slateGray rounded-2xl p-10 lg:p-12 group flex flex-col h-full shadow-sm hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
-                    <div class="absolute top-0 left-10 w-12 h-[3px] bg-clinicalRed transition-all duration-700 group-hover:w-32 z-20"></div>
+                    <div class="absolute top-0 left-10 w-12 h-[4px] bg-clinicalRed transition-all duration-700 group-hover:w-32 z-20"></div>
                     
                     <div class="relative z-10 flex-grow">
                         <div class="icon-box w-20 h-20 border-2 border-slateGray rounded-2xl flex items-center justify-center mb-8 text-trustNavy bg-white shadow-sm">
-                            <i data-lucide="droplet" class="w-10 h-10 stroke-[1.5]"></i>
+                            <i data-lucide="sparkles" class="w-10 h-10 stroke-[2]"></i>
                         </div>
                         <h3 class="font-serif font-bold text-3xl text-trustNavy mb-5" data-i18n="serv-c3-t">
-                            Wellness Treatments
+                            Aesthetics & Wellness
                         </h3>
-                        <p class="font-sans font-medium text-base text-charcoal mb-8 leading-relaxed" data-i18n="serv-c3-p">
-                            Restorative therapies and specialized medical treatments to optimize your health, hydration, and vitality.
+                        <p class="font-sans font-semibold text-lg text-charcoal mb-8 leading-relaxed" data-i18n="serv-c3-p">
+                            Advanced aesthetic treatments and restorative therapies to optimize your confidence, hydration, and vitality.
                         </p>
                         <ul class="space-y-5">
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c3-li1">Premium IV Hydration Therapy</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c3-li1">IV Vitamin Drips & Hydration</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c3-li2">Essential Immunizations</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c3-li2">Botox & Dermal Fillers</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c3-li3">Restorative Nebulizer Care</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c3-li3">Facial Harmonization</span>
                             </li>
                             <li class="flex items-start gap-4">
-                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
-                                <span class="font-sans font-bold text-base text-charcoal" data-i18n="serv-c3-li4">Minor Dermatologic Procedures</span>
+                                <span class="w-2 h-2 rounded-full bg-clinicalRed shrink-0 mt-2.5 opacity-100 group-hover:shadow-[0_0_10px_rgba(195,38,42,1)] transition-shadow duration-500"></span>
+                                <span class="font-sans font-bold text-lg text-charcoal" data-i18n="serv-c3-li4">Minor Dermatologic Procedures</span>
                             </li>
                         </ul>
                     </div>
@@ -490,8 +490,8 @@
                     <!-- Elegant Stacked Image Frame -->
                     <div class="relative p-3 bg-white shadow-2xl rounded-sm">
                         <!-- Decorative borders -->
-                        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-trustNavy/30 z-0"></div>
-                        <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-clinicalRed/50 z-0"></div>
+                        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-trustNavy/50 z-0"></div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-clinicalRed/70 z-0"></div>
                         
                         <div class="bg-slateGray h-[550px] w-full relative z-10 overflow-hidden group">
                             <img src="https://i.imgur.com/aDb5tia.jpeg" alt="Our Mission - Excellence & Care" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[1.5s] ease-out">
@@ -501,11 +501,11 @@
                             
                             <!-- Text moved to a premium bottom-left overlay -->
                             <div class="absolute bottom-8 left-8 right-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                                <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-5 border-2 border-white/40 text-white">
-                                    <i data-lucide="shield-check" class="w-8 h-8 stroke-[2]"></i>
+                                <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center mb-5 border-2 border-white/60 text-white">
+                                    <i data-lucide="shield-check" class="w-10 h-10 stroke-[2.5]"></i>
                                 </div>
-                                <h3 class="font-serif font-bold text-4xl text-white mb-2 drop-shadow-md" data-i18n="about-photo-h">Our Mission</h3>
-                                <p class="font-sans text-sm text-white/90 uppercase tracking-widest font-extrabold drop-shadow-sm" data-i18n="about-photo-p">
+                                <h3 class="font-serif font-extrabold text-4xl text-white mb-2 drop-shadow-md" data-i18n="about-photo-h">Our Mission</h3>
+                                <p class="font-sans text-base text-white uppercase tracking-widest font-extrabold drop-shadow-lg" data-i18n="about-photo-p">
                                     Excellence & Care
                                 </p>
                             </div>
@@ -516,15 +516,15 @@
                 <div class="lg:col-span-7" data-aos="fade-left" data-aos-duration="1500">
                     <div class="flex items-center gap-4 mb-8">
                         <span class="w-16 h-[3px] bg-clinicalRed"></span>
-                        <span class="font-sans font-bold uppercase tracking-[0.2em] text-trustNavy text-sm" data-i18n="about-sub">
+                        <span class="font-sans font-extrabold uppercase tracking-[0.2em] text-trustNavy text-base" data-i18n="about-sub">
                             Our Promise
                         </span>
                     </div>
-                    <h2 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-trustNavy mb-10 leading-tight">
-                        <span data-i18n="about-h2-1">A legacy of clinical excellence, delivered with</span> <span class="italic font-bold text-clinicalRed" data-i18n="about-h2-2">profound compassion.</span>
+                    <h2 class="font-serif font-extrabold text-4xl md:text-5xl lg:text-6xl text-trustNavy mb-10 leading-tight">
+                        <span data-i18n="about-h2-1">A legacy of clinical excellence, delivered with</span> <span class="italic font-extrabold text-clinicalRed" data-i18n="about-h2-2">profound compassion.</span>
                     </h2>
                     
-                    <div class="space-y-6 font-sans font-medium text-charcoal text-xl leading-relaxed mb-12 relative pl-8 border-l-4 border-clinicalRed/30">
+                    <div class="space-y-6 font-sans font-semibold text-charcoal text-xl leading-relaxed mb-12 relative pl-8 border-l-4 border-clinicalRed">
                         <p data-i18n="about-p1">
                             At Alma Hispana Medical Clinic, we believe that distinguished healthcare should be accessible to everyone. Our practice is built on a foundation of universal care, bridging the gap between high-end medical excellence and our local Lynwood community.
                         </p>
@@ -534,15 +534,15 @@
                     </div>
                     
                     <div class="grid sm:grid-cols-2 gap-8 pt-8">
-                        <div class="bg-slateGray/40 p-8 rounded-2xl hover:bg-slateGray/70 transition-colors duration-300">
-                            <i data-lucide="heart-pulse" class="w-8 h-8 text-clinicalRed stroke-[2] mb-5"></i>
-                            <h4 class="font-sans font-bold uppercase tracking-widest text-trustNavy text-sm mb-3" data-i18n="about-b1-t">Compassion</h4>
-                            <p class="font-sans font-medium text-base text-charcoal leading-relaxed" data-i18n="about-b1-p">Prioritizing your comfort, dignity, and understanding from the moment you arrive.</p>
+                        <div class="bg-slateGray/40 p-8 rounded-2xl hover:bg-slateGray/70 transition-colors duration-300 border border-slateGray">
+                            <i data-lucide="heart-pulse" class="w-10 h-10 text-clinicalRed stroke-[2] mb-5"></i>
+                            <h4 class="font-sans font-extrabold uppercase tracking-widest text-trustNavy text-base mb-3" data-i18n="about-b1-t">Compassion</h4>
+                            <p class="font-sans font-semibold text-lg text-charcoal leading-relaxed" data-i18n="about-b1-p">Prioritizing your comfort, dignity, and understanding from the moment you arrive.</p>
                         </div>
-                        <div class="bg-slateGray/40 p-8 rounded-2xl hover:bg-slateGray/70 transition-colors duration-300">
-                            <i data-lucide="activity" class="w-8 h-8 text-clinicalRed stroke-[2] mb-5"></i>
-                            <h4 class="font-sans font-bold uppercase tracking-widest text-trustNavy text-sm mb-3" data-i18n="about-b2-t">Excellence</h4>
-                            <p class="font-sans font-medium text-base text-charcoal leading-relaxed" data-i18n="about-b2-p">State-of-the-art diagnostic care without the complexity of traditional medical settings.</p>
+                        <div class="bg-slateGray/40 p-8 rounded-2xl hover:bg-slateGray/70 transition-colors duration-300 border border-slateGray">
+                            <i data-lucide="activity" class="w-10 h-10 text-clinicalRed stroke-[2] mb-5"></i>
+                            <h4 class="font-sans font-extrabold uppercase tracking-widest text-trustNavy text-base mb-3" data-i18n="about-b2-t">Excellence</h4>
+                            <p class="font-sans font-semibold text-lg text-charcoal leading-relaxed" data-i18n="about-b2-p">State-of-the-art diagnostic care without the complexity of traditional medical settings.</p>
                         </div>
                     </div>
                 </div>
@@ -560,24 +560,24 @@
                     <div class="lg:col-span-5 bg-trustNavy text-white p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden">
                         <!-- Background flares -->
                         <div class="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
-                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-clinicalRed/20 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2"></div>
+                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-clinicalRed/30 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2"></div>
                         
                         <div class="relative z-10">
-                            <p class="font-sans font-bold uppercase tracking-[0.25em] text-clinicalRed text-sm mb-6 flex items-center gap-3">
+                            <p class="font-sans font-extrabold uppercase tracking-[0.25em] text-clinicalRed text-base mb-6 flex items-center gap-3">
                                 <span class="w-3 h-3 rounded-full bg-clinicalRed animate-pulse"></span> <span data-i18n="loc-sub">Visit Us</span>
                             </p>
-                            <h2 class="font-serif font-bold text-5xl mb-12" data-i18n="loc-h2">
+                            <h2 class="font-serif font-extrabold text-5xl mb-12" data-i18n="loc-h2">
                                 Alma Hispana Clinic
                             </h2>
                             
                             <div class="space-y-12 font-sans">
                                 <div class="flex items-start gap-5">
-                                    <div class="bg-white/10 p-4 rounded-xl text-clinicalRed">
-                                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                    <div class="bg-white/20 p-4 rounded-xl text-white">
+                                        <i data-lucide="map-pin" class="w-8 h-8"></i>
                                     </div>
                                     <div class="pt-1">
-                                        <h4 class="font-sans font-bold tracking-widest text-white text-xs uppercase mb-2" data-i18n="loc-address-t">Address</h4>
-                                        <p class="text-lg font-medium leading-relaxed text-white/95">
+                                        <h4 class="font-sans font-extrabold tracking-widest text-white text-sm uppercase mb-2" data-i18n="loc-address-t">Address</h4>
+                                        <p class="text-xl font-bold leading-relaxed text-white">
                                             3636 E Imperial Highway<br />
                                             Lynwood, CA 90262
                                         </p>
@@ -585,12 +585,12 @@
                                 </div>
 
                                 <div class="flex items-start gap-5">
-                                    <div class="bg-white/10 p-4 rounded-xl text-clinicalRed">
-                                        <i data-lucide="clock" class="w-6 h-6"></i>
+                                    <div class="bg-white/20 p-4 rounded-xl text-white">
+                                        <i data-lucide="clock" class="w-8 h-8"></i>
                                     </div>
                                     <div class="pt-1">
-                                        <h4 class="font-sans font-bold tracking-widest text-white text-xs uppercase mb-2" data-i18n="loc-hours-t">Hours of Operation</h4>
-                                        <p class="text-lg font-medium leading-relaxed text-white/95">
+                                        <h4 class="font-sans font-extrabold tracking-widest text-white text-sm uppercase mb-2" data-i18n="loc-hours-t">Hours of Operation</h4>
+                                        <p class="text-xl font-bold leading-relaxed text-white">
                                             <span data-i18n="loc-days">Monday &mdash; Sunday</span><br />
                                             9:00 AM &mdash; 7:00 PM
                                         </p>
@@ -598,12 +598,12 @@
                                 </div>
 
                                 <div class="flex items-start gap-5">
-                                    <div class="bg-white/10 p-4 rounded-xl text-clinicalRed">
-                                        <i data-lucide="phone" class="w-6 h-6"></i>
+                                    <div class="bg-white/20 p-4 rounded-xl text-white">
+                                        <i data-lucide="phone" class="w-8 h-8"></i>
                                     </div>
                                     <div class="pt-1">
-                                        <h4 class="font-sans font-bold tracking-widest text-white text-xs uppercase mb-2" data-i18n="loc-phone-t">Direct Line</h4>
-                                        <p class="text-3xl font-serif font-bold tracking-wide text-white">
+                                        <h4 class="font-sans font-extrabold tracking-widest text-white text-sm uppercase mb-2" data-i18n="loc-phone-t">Direct Line</h4>
+                                        <p class="text-4xl font-serif font-extrabold tracking-wide text-white">
                                             (310) 455-6491
                                         </p>
                                     </div>
@@ -633,34 +633,34 @@
 
     <!-- Minimalist High-End Footer -->
     <footer class="bg-pureWhite text-charcoal pt-24 pb-12 border-t-2 border-slateGray relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-trustNavy via-clinicalRed to-trustNavy opacity-100"></div>
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-trustNavy via-clinicalRed to-trustNavy opacity-100"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-12 gap-12 lg:gap-16 mb-20">
                 
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-4 mb-8">
-                        <div class="w-12 h-12 border-2 border-slateGray rounded-xl flex items-center justify-center shadow-md">
-                            <i data-lucide="heart-pulse" class="w-7 h-7 text-clinicalRed stroke-[2]"></i>
+                        <div class="w-14 h-14 border-2 border-slateGray rounded-xl flex items-center justify-center shadow-md">
+                            <i data-lucide="heart-pulse" class="w-8 h-8 text-clinicalRed stroke-[2.5]"></i>
                         </div>
                         <div class="flex flex-col justify-center">
-                            <span class="font-serif font-bold text-trustNavy text-2xl leading-none">
+                            <span class="font-serif font-extrabold text-trustNavy text-3xl leading-none">
                                 Alma Hispana
                             </span>
-                            <span class="font-sans font-bold text-charcoal text-xs tracking-[0.25em] mt-1.5" data-i18n="foot-clinic">
+                            <span class="font-sans font-extrabold text-charcoal text-sm tracking-[0.25em] mt-1.5" data-i18n="foot-clinic">
                                 MEDICAL CLINIC
                             </span>
                         </div>
                     </div>
-                    <p class="font-sans font-medium text-charcoal text-base leading-relaxed max-w-sm pr-4" data-i18n="foot-desc">
+                    <p class="font-sans font-semibold text-charcoal text-lg leading-relaxed max-w-sm pr-4" data-i18n="foot-desc">
                         A distinguished standard of care, accessible to the community. Excellence in medicine, rooted in profound compassion.
                     </p>
                 </div>
 
                 <div class="md:col-span-3">
-                    <h4 class="font-sans font-bold uppercase tracking-[0.2em] text-trustNavy text-xs mb-8" data-i18n="foot-nav">
+                    <h4 class="font-sans font-extrabold uppercase tracking-[0.2em] text-trustNavy text-sm mb-8" data-i18n="foot-nav">
                         Navigation
                     </h4>
-                    <ul class="space-y-5 font-sans font-bold text-base text-charcoal">
+                    <ul class="space-y-5 font-sans font-bold text-lg text-charcoal">
                         <li><a href="#services" class="hover:text-clinicalRed transition-colors duration-300 relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:-bottom-1 after:left-0 after:bg-clinicalRed hover:after:scale-x-100 after:transition-transform after:origin-left" data-i18n="foot-l1">Clinical Services</a></li>
                         <li><a href="#about" class="hover:text-clinicalRed transition-colors duration-300 relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:-bottom-1 after:left-0 after:bg-clinicalRed hover:after:scale-x-100 after:transition-transform after:origin-left" data-i18n="foot-l2">Our Heritage</a></li>
                         <li><a href="#location" class="hover:text-clinicalRed transition-colors duration-300 relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-[2px] after:-bottom-1 after:left-0 after:bg-clinicalRed hover:after:scale-x-100 after:transition-transform after:origin-left" data-i18n="foot-l3">Location Details</a></li>
@@ -668,28 +668,28 @@
                 </div>
 
                 <div class="md:col-span-4">
-                    <h4 class="font-sans font-bold uppercase tracking-[0.2em] text-trustNavy text-xs mb-8" data-i18n="foot-contact">
+                    <h4 class="font-sans font-extrabold uppercase tracking-[0.2em] text-trustNavy text-sm mb-8" data-i18n="foot-contact">
                         Direct Contact
                     </h4>
-                    <ul class="space-y-5 font-sans font-bold text-base text-charcoal">
+                    <ul class="space-y-5 font-sans font-bold text-lg text-charcoal">
                         <li class="flex items-start gap-4 hover:text-trustNavy transition-colors group">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-clinicalRed mt-0.5 group-hover:scale-110 transition-transform"></i>
+                            <i data-lucide="map-pin" class="w-6 h-6 text-clinicalRed mt-0.5 group-hover:scale-110 transition-transform"></i>
                             <span class="leading-relaxed">3636 E Imperial Highway<br/>Lynwood, CA 90262</span>
                         </li>
                         <li class="flex items-center gap-4 hover:text-trustNavy transition-colors pt-2 group">
-                            <i data-lucide="phone" class="w-5 h-5 text-clinicalRed group-hover:scale-110 transition-transform"></i>
-                            <span class="font-bold tracking-wide">(310) 455-6491</span>
+                            <i data-lucide="phone" class="w-6 h-6 text-clinicalRed group-hover:scale-110 transition-transform"></i>
+                            <span class="font-extrabold tracking-wide">(310) 455-6491</span>
                         </li>
                     </ul>
                 </div>
 
             </div>
 
-            <div class="border-t-2 border-slateGray pt-8 flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-sm text-charcoal font-medium tracking-wide">
+            <div class="border-t-2 border-slateGray pt-8 flex flex-col md:flex-row justify-between items-center gap-6 font-sans text-base text-charcoal font-semibold tracking-wide">
                 <p>&copy; 2026 Alma Hispana Medical Clinic. All rights reserved.</p>
                 <div class="flex gap-8">
-                    <a href="#" class="hover:text-trustNavy transition-colors font-bold" data-i18n="foot-privacy">Privacy Policy</a>
-                    <a href="#" class="hover:text-trustNavy transition-colors font-bold" data-i18n="foot-terms">Terms of Service</a>
+                    <a href="#" class="hover:text-trustNavy transition-colors font-extrabold" data-i18n="foot-privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-trustNavy transition-colors font-extrabold" data-i18n="foot-terms">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -787,11 +787,11 @@
                 "serv-c2-li2": "School & Sports Physicals",
                 "serv-c2-li3": "Preventive Health Screenings",
                 "serv-c2-li4": "On-Site Rapid Testing & Labs",
-                "serv-c3-t": "Wellness Treatments",
-                "serv-c3-p": "Restorative therapies and specialized medical treatments to optimize your health, hydration, and vitality.",
-                "serv-c3-li1": "Premium IV Hydration Therapy",
-                "serv-c3-li2": "Essential Immunizations",
-                "serv-c3-li3": "Restorative Nebulizer Care",
+                "serv-c3-t": "Aesthetics & Wellness",
+                "serv-c3-p": "Advanced aesthetic treatments and restorative therapies to optimize your confidence, hydration, and vitality.",
+                "serv-c3-li1": "IV Vitamin Drips & Hydration",
+                "serv-c3-li2": "Botox & Dermal Fillers",
+                "serv-c3-li3": "Facial Harmonization",
                 "serv-c3-li4": "Minor Dermatologic Procedures",
                 "about-photo-h": "Our Mission",
                 "about-photo-p": "Excellence & Care",
@@ -855,11 +855,11 @@
                 "serv-c2-li2": "Físicos para Escuela y Deportes",
                 "serv-c2-li3": "Chequeos de Salud Preventivos",
                 "serv-c2-li4": "Pruebas Rápidas y Laboratorio en Sitio",
-                "serv-c3-t": "Tratamientos",
-                "serv-c3-p": "Terapias restaurativas y tratamientos médicos especializados para optimizar su salud, hidratación y vitalidad.",
-                "serv-c3-li1": "Terapia de Hidratación IV Premium",
-                "serv-c3-li2": "Inmunizaciones Esenciales",
-                "serv-c3-li3": "Atención Restaurativa con Nebulizador",
+                "serv-c3-t": "Estética y Bienestar",
+                "serv-c3-p": "Tratamientos estéticos avanzados y terapias restaurativas para optimizar su confianza, hidratación y vitalidad.",
+                "serv-c3-li1": "Sueros de Vitaminas e Hidratación IV",
+                "serv-c3-li2": "Botox y Rellenos Dérmicos",
+                "serv-c3-li3": "Armonización Facial",
                 "serv-c3-li4": "Procedimientos Dermatológicos Menores",
                 "about-photo-h": "Nuestra Misión",
                 "about-photo-p": "Excelencia y Cuidado",
